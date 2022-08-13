@@ -20,6 +20,8 @@
 		BC6A77B028A55C8C00E0AD8D /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77AF28A55C8C00E0AD8D /* UIView+Ext.swift */; };
 		BC6A77B328A64E0700E0AD8D /* InitialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77B228A64E0700E0AD8D /* InitialCell.swift */; };
 		BC6A77B728A650F200E0AD8D /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77B628A650F200E0AD8D /* CustomLabel.swift */; };
+		BC6A77BA28A7DC0200E0AD8D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77B928A7DC0200E0AD8D /* NetworkManager.swift */; };
+		BC6A77BD28A7EBCC00E0AD8D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77BC28A7EBCC00E0AD8D /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		BC6A77AF28A55C8C00E0AD8D /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		BC6A77B228A64E0700E0AD8D /* InitialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCell.swift; sourceTree = "<group>"; };
 		BC6A77B628A650F200E0AD8D /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		BC6A77B928A7DC0200E0AD8D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BC6A77BC28A7EBCC00E0AD8D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,11 +111,13 @@
 		BC6A777128A53F7A00E0AD8D /* MVP+Tests */ = {
 			isa = PBXGroup;
 			children = (
+				BC6A77BB28A7DC0800E0AD8D /* Managers */,
 				BC6A77AE28A5523C00E0AD8D /* Models */,
 				BC6A77A728A54D7C00E0AD8D /* Screens */,
 				BC6A77B528A64E2F00E0AD8D /* Custom Views */,
 				BC6A77A928A54DAA00E0AD8D /* Presenters */,
 				BC6A77B128A55C9300E0AD8D /* Extensions */,
+				BC6A77BE28A7EBD400E0AD8D /* Constants */,
 				BC6A77A828A54D9C00E0AD8D /* Support */,
 				BC6A777B28A53F7D00E0AD8D /* Assets.xcassets */,
 				BC6A777D28A53F7D00E0AD8D /* LaunchScreen.storyboard */,
@@ -189,7 +195,6 @@
 		BC6A77B528A64E2F00E0AD8D /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				BC6A77B628A650F200E0AD8D /* CustomLabel.swift */,
 				BC6A77B828A650FF00E0AD8D /* UILabels */,
 				BC6A77B428A64E0E00E0AD8D /* Cells */,
 			);
@@ -199,8 +204,25 @@
 		BC6A77B828A650FF00E0AD8D /* UILabels */ = {
 			isa = PBXGroup;
 			children = (
+				BC6A77B628A650F200E0AD8D /* CustomLabel.swift */,
 			);
 			name = UILabels;
+			sourceTree = "<group>";
+		};
+		BC6A77BB28A7DC0800E0AD8D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				BC6A77B928A7DC0200E0AD8D /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		BC6A77BE28A7EBD400E0AD8D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				BC6A77BC28A7EBCC00E0AD8D /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,10 +355,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC6A77BA28A7DC0200E0AD8D /* NetworkManager.swift in Sources */,
 				BC6A77A328A53FC800E0AD8D /* InitialVC.swift in Sources */,
 				BC6A777328A53F7A00E0AD8D /* AppDelegate.swift in Sources */,
 				BC6A77B028A55C8C00E0AD8D /* UIView+Ext.swift in Sources */,
 				BC6A77AD28A5523700E0AD8D /* Users.swift in Sources */,
+				BC6A77BD28A7EBCC00E0AD8D /* Constants.swift in Sources */,
 				BC6A777528A53F7A00E0AD8D /* SceneDelegate.swift in Sources */,
 				BC6A77A528A54D6500E0AD8D /* InitialPresenter.swift in Sources */,
 				BC6A77B328A64E0700E0AD8D /* InitialCell.swift in Sources */,
