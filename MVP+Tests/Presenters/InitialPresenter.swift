@@ -13,18 +13,17 @@ protocol InitialViewProtocol: AnyObject {
 }
 
 protocol InitialViewPresenterProtocol: AnyObject {
-    init (view: InitialViewProtocol)
+    init (view: InitialViewProtocol, manager: NetworkManager)
     func getUsers()
 }
 
-typealias PresenterDelegate = InitialViewProtocol & UIViewController
-
 class InitialPresenter: InitialViewPresenterProtocol {
     weak var view: InitialViewProtocol? // we can use any screens depends on protocol
-    let manager = NetworkManager()
+    let manager: NetworkManager
     
-    required init(view: InitialViewProtocol) {
+    required init(view: InitialViewProtocol, manager: NetworkManager) {
         self.view = view
+        self.manager = manager
     }
 
     func getUsers() {

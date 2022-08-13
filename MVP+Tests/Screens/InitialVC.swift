@@ -11,20 +11,19 @@ class InitialVC: UIViewController {
     
     let initialTableView = UITableView()
 
-    private lazy var presenter = InitialPresenter(view: self)
+    var presenter: InitialViewPresenterProtocol?
     var users: [Users] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        presenter.getUsers()
+        presenter?.getUsers()
     }
     
     private func configure() {
         title = String(describing: InitialVC.self)
         view.setInitialTableView(view: view, tableView: initialTableView, vc: self)
     }
-
 }
 
 extension InitialVC: UITableViewDataSource {
