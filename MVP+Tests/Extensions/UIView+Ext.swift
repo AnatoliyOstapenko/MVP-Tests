@@ -18,7 +18,14 @@ extension UIView {
         tableView.register(InitialCell.self, forCellReuseIdentifier: InitialCell.reuseID)
         tableView.dataSource = vc as? InitialVC
         tableView.delegate = vc as? InitialVC
-        tableView.frame = view.bounds
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     // MARK: - InitialCell Layout

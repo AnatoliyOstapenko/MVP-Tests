@@ -9,5 +9,16 @@ import Foundation
 
 class NetworkManager {
     
-    let url = URL(string: <#T##String#>)
+    func getUsers(completion: @escaping(Result<[Users],Error>)-> Void) {
+        guard let url = Constants.url else { return }
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data, error == nil else { return }
+
+            do {
+                let result = try JSONDecoder().decode([Users].self, from: data)
+                completion(.success(result))
+            } catch { completion(.failure(error))}
+        }
+        task.resume()
+    }
 }
