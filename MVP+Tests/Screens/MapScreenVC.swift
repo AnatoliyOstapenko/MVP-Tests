@@ -13,6 +13,9 @@ class MapScreenVC: UIViewController {
     
     let mapView = MKMapView()
     let locationManager = CLLocationManager()
+    
+    var latitude: Double = 50.46517050666929
+    var longitude: Double = 30.515451790777405
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +44,18 @@ class MapScreenVC: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
+    private func centerViewOnUserLocation() {
+        guard let location = locationManager.location?.coordinate else { return }
+        let region = MKCoordinateRegion(center: location, latitudinalMeters: Constants.zoom, longitudinalMeters: Constants.zoom)
+            mapView.setRegion(region, animated: true)
+    }
+    
+    private func userLocation() {
+        let center = CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: Constants.zoom, longitudinalMeters: Constants.zoom)
+        mapView.setRegion(region, animated: true)
+    }
+
     private func checkLocationAuthorization() {
         switch locationManager.authorizationStatus {
         case .notDetermined:
@@ -49,16 +64,31 @@ class MapScreenVC: UIViewController {
             break
         case .denied:
             break
-        case .authorizedAlways:
-            break
         case .authorizedWhenInUse:
-            break
+            configureMapView()
+        case .authorizedAlways:
+            configureMapView()
         @unknown default:
             break
         }
     }
+    
+    private func configureMapView() {
+        userLocation()
+//        mapView.showsUserLocation = true
+//        locationManager.startUpdatingLocation()
+    }
 }
 
 extension MapScreenVC: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: Constants.zoom, longitudinalMeters: Constants.zoom)
+        mapView.setRegion(region, animated: true)
+    }
     
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkLocationAuthorization() // check status if user change authorization
+    }
 }
