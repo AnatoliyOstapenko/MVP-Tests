@@ -11,14 +11,14 @@ import XCTest
 class InitialPresenterTests: XCTestCase {
     
     var view: InitialVCMock!
-    var presenter: InitialPresenter!
     var manager: NetworkManager!
+    var presenter: InitialPresenter!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
         view = InitialVCMock()
-        presenter = InitialPresenter(view: view, manager: manager)
         manager = NetworkManager()
+        presenter = InitialPresenter(view: view, manager: manager)
     }
 
     override func tearDownWithError() throws {
@@ -27,5 +27,25 @@ class InitialPresenterTests: XCTestCase {
         presenter = nil
         try super.tearDownWithError()
     }
-
+    
+    func test_initPresenterNotNil() {
+        // Assert
+        XCTAssertNotNil(presenter)
+    }
+    
+    func test_getUsers() {
+        // Arrange
+        let users: [Users] = [Users(name: "Foo", username: "Bar")]
+        // Act
+        presenter.getUsers()
+        manager.getUsers { result in
+            switch result {
+            case .success(let users): self.view.setUsers(users: users)
+            case .failure(let error): print(error)
+            }
+        }
+        // Assert
+        XCTAssertEqual(view.users, nil)
+    }
 }
+
