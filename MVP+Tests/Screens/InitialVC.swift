@@ -42,6 +42,11 @@ extension InitialVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = MapScreenVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
     
 extension InitialVC: InitialViewProtocol {

@@ -10,16 +10,22 @@ import XCTest
 
 class InitialVCTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    var view: InitialVCMock!
+    var manager: NetworkManager!
+    var presenter: InitialPresenter!
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+        view = InitialVCMock()
+        manager = NetworkManager()
+        presenter = InitialPresenter(view: view, manager: manager)
     }
     
-    func test_setUsers() {
-        
+    override func tearDownWithError() throws {
+        manager = nil
+        view = nil
+        presenter = nil
+        try super.tearDownWithError()
     }
 
 }

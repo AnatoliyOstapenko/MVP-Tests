@@ -25,6 +25,7 @@
 		BC6A77C628A907C600E0AD8D /* InitialPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77C528A907C600E0AD8D /* InitialPresenterTests.swift */; };
 		BC6A77C828A90A9000E0AD8D /* InitialVCMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77C728A90A9000E0AD8D /* InitialVCMock.swift */; };
 		BC6A77CC28A9256200E0AD8D /* InitialVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77CB28A9256200E0AD8D /* InitialVCTests.swift */; };
+		BC6A77D028A9422800E0AD8D /* MapScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77CF28A9422800E0AD8D /* MapScreenVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		BC6A77C528A907C600E0AD8D /* InitialPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPresenterTests.swift; sourceTree = "<group>"; };
 		BC6A77C728A90A9000E0AD8D /* InitialVCMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialVCMock.swift; sourceTree = "<group>"; };
 		BC6A77CB28A9256200E0AD8D /* InitialVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialVCTests.swift; sourceTree = "<group>"; };
+		BC6A77CF28A9422800E0AD8D /* MapScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				BC6A77A228A53FC800E0AD8D /* InitialVC.swift */,
+				BC6A77CF28A9422800E0AD8D /* MapScreenVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 			files = (
 				BC6A77BA28A7DC0200E0AD8D /* NetworkManager.swift in Sources */,
 				BC6A77C828A90A9000E0AD8D /* InitialVCMock.swift in Sources */,
+				BC6A77D028A9422800E0AD8D /* MapScreenVC.swift in Sources */,
 				BC6A77A328A53FC800E0AD8D /* InitialVC.swift in Sources */,
 				BC6A777328A53F7A00E0AD8D /* AppDelegate.swift in Sources */,
 				BC6A77B028A55C8C00E0AD8D /* UIView+Ext.swift in Sources */,

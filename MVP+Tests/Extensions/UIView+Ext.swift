@@ -51,11 +51,20 @@ extension UIView {
             nameLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: padding),
             usernameLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: padding)
         ])
-        
     }
     
+    // MARK: - MapScreenVC Layout
     
-    
-    
+    func setMapView(view: UIView, mapView: UIView) {
+        view.addSubview(mapView)
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mapView.topAnchor.constraint(equalTo: view.topAnchor),
+            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
     
 }
