@@ -32,20 +32,5 @@ class InitialPresenterTests: XCTestCase {
         // Assert
         XCTAssertNotNil(presenter)
     }
-    
-    func test_getUsers() {
-        // Arrange
-        let users: [Users] = [Users(name: "Foo", username: "Bar")]
-        // Act
-        presenter.getUsers()
-        manager.getUsers { result in
-            switch result {
-            case .success(let users): self.view.setUsers(users: users)
-            case .failure(let error): print(error)
-            }
-        }
-        // Assert
-        XCTAssertEqual(view.users, nil)
-    }
 }
 

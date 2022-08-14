@@ -13,15 +13,15 @@ protocol InitialViewProtocol: AnyObject {
 }
 
 protocol InitialViewPresenterProtocol: AnyObject {
-    init (view: InitialViewProtocol, manager: NetworkManager)
+    init (view: InitialViewProtocol, manager: NetworkManagerProtocol)
     func getUsers()
 }
 
 class InitialPresenter: InitialViewPresenterProtocol {
     weak var view: InitialViewProtocol? // we can use any screens depends on protocol
-    let manager: NetworkManager
+    let manager: NetworkManagerProtocol
     
-    required init(view: InitialViewProtocol, manager: NetworkManager) {
+    required init(view: InitialViewProtocol, manager: NetworkManagerProtocol) {
         self.view = view
         self.manager = manager
     }
