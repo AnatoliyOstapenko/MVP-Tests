@@ -30,8 +30,7 @@ class InitialPresenter: InitialViewPresenterProtocol {
         manager.getUsers { [weak self] results in
             guard let self = self else { return }
             switch results {
-            case .success(let users):
-                DispatchQueue.main.async { self.view?.setUsers(users: users) }
+            case .success(let users):  DispatchQueue.main.async { self.view?.setUsers(users: users) }
             case .failure(let error): print(error.localizedDescription)
                 
             }
