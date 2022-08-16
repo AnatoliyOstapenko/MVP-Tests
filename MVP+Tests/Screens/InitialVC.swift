@@ -12,7 +12,7 @@ class InitialVC: UIViewController {
     let initialTableView = UITableView()
 
     var presenter: InitialViewPresenterProtocol?
-    var mapPresenter: MapScreenPresenterProtocol?
+    var coordinator: MapScreenCoordinatorProtocol?
     var users: [Users] = []
 
     override func viewDidLoad() {
@@ -45,8 +45,7 @@ extension InitialVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = MapBuilder.createMapScreenVC(user: users[indexPath.row])
-        navigationController?.pushViewController(vc, animated: true)
+        coordinator?.createMapScreen(user: users[indexPath.row])
     }
 }
     
