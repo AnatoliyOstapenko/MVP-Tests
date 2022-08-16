@@ -45,11 +45,11 @@ class MapScreenVC: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    private func centerViewOnUserLocation() {
-        guard let location = locationManager.location?.coordinate else { return }
-        let region = MKCoordinateRegion(center: location, latitudinalMeters: Constants.zoom, longitudinalMeters: Constants.zoom)
-            mapView.setRegion(region, animated: true)
-    }
+//    private func centerViewOnUserLocation() {
+//        guard let location = locationManager.location?.coordinate else { return }
+//        let region = MKCoordinateRegion(center: location, latitudinalMeters: Constants.zoom, longitudinalMeters: Constants.zoom)
+//            mapView.setRegion(region, animated: true)
+//    }
     
     private func userLocation() {
         if let latitude = latitude, let longitude = longitude {
@@ -89,17 +89,15 @@ extension MapScreenVC: MapScreenViewProtocol {
         self.longitude = longitude
         print("latitude = \(latitude), longitude = \(longitude)")
     }
-    
-    
 }
 
 extension MapScreenVC: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: Constants.zoom, longitudinalMeters: Constants.zoom)
-        mapView.setRegion(region, animated: true)
-    }
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        guard let location = locations.last else { return }
+//        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+//        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: Constants.zoom, longitudinalMeters: Constants.zoom)
+//        mapView.setRegion(region, animated: true)
+//    }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthorization() // check status if user change authorization
