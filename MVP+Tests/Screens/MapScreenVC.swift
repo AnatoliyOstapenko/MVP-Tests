@@ -14,13 +14,16 @@ class MapScreenVC: UIViewController {
     let mapView = MKMapView()
     let locationManager = CLLocationManager()
     
-    var latitude: Double = 50.46517050666929
-    var longitude: Double = 30.515451790777405
+    var presenter: MapScreenPresenterProtocol?
+    
+    var latitude: Double = 41.2534
+    var longitude: Double = -8.7064
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
         checkLocationServices()
+        presenter?.getCoordinate()
     }
     
     private func configure() {
@@ -78,6 +81,16 @@ class MapScreenVC: UIViewController {
 //        mapView.showsUserLocation = true
 //        locationManager.startUpdatingLocation()
     }
+}
+
+extension MapScreenVC: MapScreenViewProtocol {
+    func setCordinate(latitude: Double, longitude: Double) {
+        self.latitude = latitude
+        self.longitude = longitude
+        print("latitude = \(latitude), longitude = \(longitude)")
+    }
+    
+    
 }
 
 extension MapScreenVC: CLLocationManagerDelegate {

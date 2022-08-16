@@ -27,7 +27,7 @@
 		BC6A77CC28A9256200E0AD8D /* InitialVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77CB28A9256200E0AD8D /* InitialVCTests.swift */; };
 		BC6A77D028A9422800E0AD8D /* MapScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77CF28A9422800E0AD8D /* MapScreenVC.swift */; };
 		BC6A77D228A95EE800E0AD8D /* MapScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77D128A95EE800E0AD8D /* MapScreenPresenter.swift */; };
-		BC6A77D428A960AC00E0AD8D /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77D328A960AC00E0AD8D /* Coordinate.swift */; };
+		BC6A77D628AC1F2E00E0AD8D /* InitialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77D528AC1F2E00E0AD8D /* InitialCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +72,7 @@
 		BC6A77CB28A9256200E0AD8D /* InitialVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialVCTests.swift; sourceTree = "<group>"; };
 		BC6A77CF28A9422800E0AD8D /* MapScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenVC.swift; sourceTree = "<group>"; };
 		BC6A77D128A95EE800E0AD8D /* MapScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenPresenter.swift; sourceTree = "<group>"; };
-		BC6A77D328A960AC00E0AD8D /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		BC6A77D528AC1F2E00E0AD8D /* InitialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +136,7 @@
 				BC6A777B28A53F7D00E0AD8D /* Assets.xcassets */,
 				BC6A777D28A53F7D00E0AD8D /* LaunchScreen.storyboard */,
 				BC6A778028A53F7D00E0AD8D /* Info.plist */,
+				BC6A77D528AC1F2E00E0AD8D /* InitialCoordinator.swift */,
 			);
 			path = "MVP+Tests";
 			sourceTree = "<group>";
@@ -189,7 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				BC6A77AC28A5523700E0AD8D /* Users.swift */,
-				BC6A77D328A960AC00E0AD8D /* Coordinate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -402,8 +402,8 @@
 				BC6A77A528A54D6500E0AD8D /* InitialPresenter.swift in Sources */,
 				BC6A77B328A64E0700E0AD8D /* InitialCell.swift in Sources */,
 				BC6A77C028A80EED00E0AD8D /* InitialBuilder.swift in Sources */,
+				BC6A77D628AC1F2E00E0AD8D /* InitialCoordinator.swift in Sources */,
 				BC6A77B728A650F200E0AD8D /* CustomLabel.swift in Sources */,
-				BC6A77D428A960AC00E0AD8D /* Coordinate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

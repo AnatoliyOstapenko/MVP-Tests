@@ -12,31 +12,22 @@ protocol MapScreenViewProtocol: AnyObject {
 }
 
 protocol MapScreenPresenterProtocol: AnyObject {
-    init (view: MapScreenViewProtocol, manager: NetworkManager)
+    init (view: MapScreenViewProtocol, user: Users)
     func getCoordinate()
     
 }
 
 class MapScreenPresenter: MapScreenPresenterProtocol {
     weak var view: MapScreenViewProtocol?
-    var manager: NetworkManager
-    
-    required init(view: MapScreenViewProtocol, manager: NetworkManager) {
+    var user: Users
+    required init(view: MapScreenViewProtocol, user: Users) {
         self.view = view
-        self.manager = manager
+        self.user = user
     }
-    
+
     func getCoordinate() {
-        manager.getCoordinate { [weak self] results in
-            guard let self = self else { return }
-            switch results {
-            case .success(let coordinates):
-                DispatchQueue.main.async {
-                    self.view?.setCordinate(latitude: coordinates.lat.stringToDouble, longitude: coordinates.lng.stringToDouble)
-                }
-            case .failure(let error): print(error)
-            }
-        }
+        view?.setCordinate(latitude: user.address.geo.lat.stringToDouble,
+                           longitude: user.address.geo.lng.stringToDouble)
     }
 }
 

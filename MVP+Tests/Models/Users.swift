@@ -7,7 +7,17 @@
 
 import Foundation
 
-struct Users: Codable, Equatable {
+struct Users: Codable {
     let name: String
     let username: String
+    let address: Address
+}
+
+struct Address: Codable {
+    var geo: Geo
+}
+
+struct Geo: Codable {
+    let lat: String
+    let lng: String
 }
