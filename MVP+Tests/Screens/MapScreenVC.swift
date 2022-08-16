@@ -16,8 +16,8 @@ class MapScreenVC: UIViewController {
     
     var presenter: MapScreenPresenterProtocol?
     
-    var latitude: Double = 41.2534
-    var longitude: Double = -8.7064
+    var latitude: Double?
+    var longitude: Double?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +37,7 @@ class MapScreenVC: UIViewController {
         if CLLocationManager.locationServicesEnabled() {
             setLocationManager()
             checkLocationAuthorization()
-        } else {
-            // show Error alert
-        }
+        } else {} // TODO: - create alert in the future
     }
     
     private func setLocationManager() {
@@ -54,9 +52,11 @@ class MapScreenVC: UIViewController {
     }
     
     private func userLocation() {
-        let center = CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: Constants.zoom, longitudinalMeters: Constants.zoom)
-        mapView.setRegion(region, animated: true)
+        if let latitude = latitude, let longitude = longitude {
+            let center = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            let region = MKCoordinateRegion(center: center, latitudinalMeters: Constants.zoom, longitudinalMeters: Constants.zoom)
+            mapView.setRegion(region, animated: true)
+        }
     }
 
     private func checkLocationAuthorization() {
