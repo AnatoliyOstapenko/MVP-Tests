@@ -21,14 +21,10 @@
 		BC6A77B728A650F200E0AD8D /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77B628A650F200E0AD8D /* CustomLabel.swift */; };
 		BC6A77BA28A7DC0200E0AD8D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77B928A7DC0200E0AD8D /* NetworkManager.swift */; };
 		BC6A77BD28A7EBCC00E0AD8D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77BC28A7EBCC00E0AD8D /* Constants.swift */; };
-		BC6A77C628A907C600E0AD8D /* InitialPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77C528A907C600E0AD8D /* InitialPresenterTests.swift */; };
-		BC6A77C828A90A9000E0AD8D /* InitialVCMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77C728A90A9000E0AD8D /* InitialVCMock.swift */; };
-		BC6A77CC28A9256200E0AD8D /* InitialVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77CB28A9256200E0AD8D /* InitialVCTests.swift */; };
 		BC6A77D028A9422800E0AD8D /* MapScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77CF28A9422800E0AD8D /* MapScreenVC.swift */; };
 		BC6A77D228A95EE800E0AD8D /* MapScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77D128A95EE800E0AD8D /* MapScreenPresenter.swift */; };
 		BC6A77D628AC1F2E00E0AD8D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77D528AC1F2E00E0AD8D /* Coordinator.swift */; };
 		BC7363EE28B0D94A00F6BFF3 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7363ED28B0D94A00F6BFF3 /* String+Ext.swift */; };
-		BC7363F028B1371500F6BFF3 /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7363EF28B1371500F6BFF3 /* NetworkManagerMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,14 +63,10 @@
 		BC6A77B628A650F200E0AD8D /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		BC6A77B928A7DC0200E0AD8D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BC6A77BC28A7EBCC00E0AD8D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		BC6A77C528A907C600E0AD8D /* InitialPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPresenterTests.swift; sourceTree = "<group>"; };
-		BC6A77C728A90A9000E0AD8D /* InitialVCMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialVCMock.swift; sourceTree = "<group>"; };
-		BC6A77CB28A9256200E0AD8D /* InitialVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialVCTests.swift; sourceTree = "<group>"; };
 		BC6A77CF28A9422800E0AD8D /* MapScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenVC.swift; sourceTree = "<group>"; };
 		BC6A77D128A95EE800E0AD8D /* MapScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenPresenter.swift; sourceTree = "<group>"; };
 		BC6A77D528AC1F2E00E0AD8D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BC7363ED28B0D94A00F6BFF3 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
-		BC7363EF28B1371500F6BFF3 /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				BC6A777128A53F7A00E0AD8D /* MVP+Tests */,
-				BC6A778828A53F7D00E0AD8D /* MVP+TestsTests */,
 				BC6A779228A53F7D00E0AD8D /* MVP+TestsUITests */,
 				BC6A777028A53F7A00E0AD8D /* Products */,
 			);
@@ -139,7 +130,6 @@
 				BC6A77B528A64E2F00E0AD8D /* Custom Views */,
 				BC6A77A928A54DAA00E0AD8D /* Presenters */,
 				BC2EA81428AC48A500DF0400 /* Coordinator */,
-				BC6A77C428A8FEF500E0AD8D /* Mocks */,
 				BC6A77B128A55C9300E0AD8D /* Extensions */,
 				BC6A77BE28A7EBD400E0AD8D /* Constants */,
 				BC6A77A828A54D9C00E0AD8D /* Support */,
@@ -148,15 +138,6 @@
 				BC6A778028A53F7D00E0AD8D /* Info.plist */,
 			);
 			path = "MVP+Tests";
-			sourceTree = "<group>";
-		};
-		BC6A778828A53F7D00E0AD8D /* MVP+TestsTests */ = {
-			isa = PBXGroup;
-			children = (
-				BC6A77C528A907C600E0AD8D /* InitialPresenterTests.swift */,
-				BC6A77CB28A9256200E0AD8D /* InitialVCTests.swift */,
-			);
-			path = "MVP+TestsTests";
 			sourceTree = "<group>";
 		};
 		BC6A779228A53F7D00E0AD8D /* MVP+TestsUITests */ = {
@@ -251,15 +232,6 @@
 				BC6A77BC28A7EBCC00E0AD8D /* Constants.swift */,
 			);
 			path = Constants;
-			sourceTree = "<group>";
-		};
-		BC6A77C428A8FEF500E0AD8D /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				BC6A77C728A90A9000E0AD8D /* InitialVCMock.swift */,
-				BC7363EF28B1371500F6BFF3 /* NetworkManagerMock.swift */,
-			);
-			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,10 +366,8 @@
 			files = (
 				BC6A77BA28A7DC0200E0AD8D /* NetworkManager.swift in Sources */,
 				BC6A77D228A95EE800E0AD8D /* MapScreenPresenter.swift in Sources */,
-				BC6A77C828A90A9000E0AD8D /* InitialVCMock.swift in Sources */,
 				BC6A77D028A9422800E0AD8D /* MapScreenVC.swift in Sources */,
 				BC6A77A328A53FC800E0AD8D /* InitialVC.swift in Sources */,
-				BC7363F028B1371500F6BFF3 /* NetworkManagerMock.swift in Sources */,
 				BC6A777328A53F7A00E0AD8D /* AppDelegate.swift in Sources */,
 				BC6A77B028A55C8C00E0AD8D /* UIView+Ext.swift in Sources */,
 				BC6A77AD28A5523700E0AD8D /* Users.swift in Sources */,
@@ -415,8 +385,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC6A77C628A907C600E0AD8D /* InitialPresenterTests.swift in Sources */,
-				BC6A77CC28A9256200E0AD8D /* InitialVCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
