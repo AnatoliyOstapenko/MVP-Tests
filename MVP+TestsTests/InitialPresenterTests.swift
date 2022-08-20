@@ -11,26 +11,43 @@ import XCTest
 class InitialPresenterTests: XCTestCase {
     
     var view: InitialVCMock!
-    var manager: NetworkManager!
+    var manager: NetworkManagerProtocol!
     var presenter: InitialPresenter!
+    var coordinator: Coordinator!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        view = InitialVCMock()
-        manager = NetworkManager()
-        presenter = InitialPresenter(view: view, manager: manager)
     }
 
     override func tearDownWithError() throws {
-        manager = nil
         view = nil
         presenter = nil
+        manager = nil
         try super.tearDownWithError()
     }
     
-    func test_initPresenterNotNil() {
+    func test_getUsers() {
+        
+        // Arrange
+        let geo = Geo(lat: "Foo", lng: "Bar")
+        let address = Address(geo: geo)
+        let user = Users(name: "Foo", username: "Bar", address: address)
+        view = InitialVCMock()
+        manager = NetworkManagerMock(users: [user])
+        presenter = InitialPresenter(view: view, manager: manager)
+        var fakeUsers: [Users] = []
+        
+        // Act
+        manager.getUsers { result in
+            switch result {
+            case .success(let users): fakeUsers = users
+            case .failure(let error): print(error)
+            }
+        }
+        
         // Assert
-        XCTAssertNotNil(presenter)
+        XCTAssertEqual(fakeUsers[0].name, "Foo")
     }
+
 }
 

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BC2EA82628AD288A00DF0400 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2EA82528AD288A00DF0400 /* Router.swift */; };
 		BC6A777328A53F7A00E0AD8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A777228A53F7A00E0AD8D /* AppDelegate.swift */; };
 		BC6A777528A53F7A00E0AD8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A777428A53F7A00E0AD8D /* SceneDelegate.swift */; };
 		BC6A777C28A53F7D00E0AD8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC6A777B28A53F7D00E0AD8D /* Assets.xcassets */; };
@@ -29,6 +28,7 @@
 		BC6A77D228A95EE800E0AD8D /* MapScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77D128A95EE800E0AD8D /* MapScreenPresenter.swift */; };
 		BC6A77D628AC1F2E00E0AD8D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77D528AC1F2E00E0AD8D /* Coordinator.swift */; };
 		BC7363EE28B0D94A00F6BFF3 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7363ED28B0D94A00F6BFF3 /* String+Ext.swift */; };
+		BC7363F028B1371500F6BFF3 /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7363EF28B1371500F6BFF3 /* NetworkManagerMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BC2EA82528AD288A00DF0400 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		BC6A776F28A53F7A00E0AD8D /* MVP+Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVP+Tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC6A777228A53F7A00E0AD8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC6A777428A53F7A00E0AD8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		BC6A77D128A95EE800E0AD8D /* MapScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenPresenter.swift; sourceTree = "<group>"; };
 		BC6A77D528AC1F2E00E0AD8D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BC7363ED28B0D94A00F6BFF3 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		BC7363EF28B1371500F6BFF3 /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +133,6 @@
 		BC6A777128A53F7A00E0AD8D /* MVP+Tests */ = {
 			isa = PBXGroup;
 			children = (
-				BC2EA82528AD288A00DF0400 /* Router.swift */,
 				BC6A77BB28A7DC0800E0AD8D /* Managers */,
 				BC6A77AE28A5523C00E0AD8D /* Models */,
 				BC6A77A728A54D7C00E0AD8D /* Screens */,
@@ -258,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				BC6A77C728A90A9000E0AD8D /* InitialVCMock.swift */,
+				BC7363EF28B1371500F6BFF3 /* NetworkManagerMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -397,6 +397,7 @@
 				BC6A77C828A90A9000E0AD8D /* InitialVCMock.swift in Sources */,
 				BC6A77D028A9422800E0AD8D /* MapScreenVC.swift in Sources */,
 				BC6A77A328A53FC800E0AD8D /* InitialVC.swift in Sources */,
+				BC7363F028B1371500F6BFF3 /* NetworkManagerMock.swift in Sources */,
 				BC6A777328A53F7A00E0AD8D /* AppDelegate.swift in Sources */,
 				BC6A77B028A55C8C00E0AD8D /* UIView+Ext.swift in Sources */,
 				BC6A77AD28A5523700E0AD8D /* Users.swift in Sources */,
@@ -404,7 +405,6 @@
 				BC6A777528A53F7A00E0AD8D /* SceneDelegate.swift in Sources */,
 				BC6A77A528A54D6500E0AD8D /* InitialPresenter.swift in Sources */,
 				BC6A77B328A64E0700E0AD8D /* InitialCell.swift in Sources */,
-				BC2EA82628AD288A00DF0400 /* Router.swift in Sources */,
 				BC6A77D628AC1F2E00E0AD8D /* Coordinator.swift in Sources */,
 				BC7363EE28B0D94A00F6BFF3 /* String+Ext.swift in Sources */,
 				BC6A77B728A650F200E0AD8D /* CustomLabel.swift in Sources */,

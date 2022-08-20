@@ -9,7 +9,6 @@ import Foundation
 
 protocol NetworkManagerProtocol {
     func getUsers(completion: @escaping(Result<[Users],Error>) -> Void)
-//    func getCoordinate(completion: @escaping(Result<[Users],Error>) -> Void)
 }
 
 class NetworkManager: NetworkManagerProtocol {
@@ -26,16 +25,4 @@ class NetworkManager: NetworkManagerProtocol {
         }
         task.resume()
     }
-//
-//    func getCoordinate(completion: @escaping(Result<[Coordinate],Error>) -> Void) {
-//        guard let url = Constants.url else { return }
-//        let task = URLSession.shared.dataTask(with: url) { data, _, error in
-//            guard let data = data, error == nil else { return }
-//            do {
-//                let coordinates = try JSONDecoder().decode([Coordinate].self, from: data)
-//                completion(.success(coordinates))
-//            } catch { completion(.failure(error))}
-//        }
-//        task.resume()
-//    }
 }

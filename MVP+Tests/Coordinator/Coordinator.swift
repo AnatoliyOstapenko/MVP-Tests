@@ -11,9 +11,8 @@ import UIKit
 protocol CoordinatorProtocol {
     var navController: UINavigationController { get set }
     func start()
+    func createMapScreen(user: Users)
 }
-
-protocol MapScreenCoordinatorProtocol { func createMapScreen(user: Users) }
 
 // InitialVC
 class Coordinator: CoordinatorProtocol {
@@ -29,10 +28,7 @@ class Coordinator: CoordinatorProtocol {
         view.coordinator = self
         navController.pushViewController(view, animated: true)
     }
-}
-
-// MapScreenVC
-extension Coordinator: MapScreenCoordinatorProtocol {
+    
     func createMapScreen(user: Users) {
         let view = MapScreenVC()
         let presenter = MapScreenPresenter(view: view, user: user)

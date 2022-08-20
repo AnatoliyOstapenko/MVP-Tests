@@ -12,7 +12,7 @@ class InitialVC: UIViewController {
     let initialTableView = UITableView()
 
     var presenter: InitialViewPresenterProtocol?
-    var coordinator: MapScreenCoordinatorProtocol?
+    var coordinator: CoordinatorProtocol?
     var users: [Users] = []
 
     override func viewDidLoad() {

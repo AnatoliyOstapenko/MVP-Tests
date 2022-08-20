@@ -15,7 +15,7 @@ class MapScreenVC: UIViewController {
     let locationManager = CLLocationManager()
     
     var presenter: MapScreenPresenterProtocol?
-    var coordinator: MapScreenCoordinatorProtocol?
+    var coordinator: CoordinatorProtocol?
     
     var latitude: Double?
     var longitude: Double?
