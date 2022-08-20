@@ -1,5 +1,5 @@
 //
-//  InitialCoordinator.swift
+//  Coordinator.swift
 //  MVP+Tests
 //
 //  Created by AnatoliiOstapenko on 16.08.2022.

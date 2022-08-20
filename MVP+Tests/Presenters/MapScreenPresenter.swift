@@ -31,11 +31,4 @@ class MapScreenPresenter: MapScreenPresenterProtocol {
     }
 }
 
-private extension String {
-    var stringToDouble: Double {
-        if let item = Double(self) {
-            return item
-        }
-        return 0
-    }
-}
+
