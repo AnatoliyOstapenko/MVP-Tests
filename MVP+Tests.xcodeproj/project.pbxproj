@@ -25,6 +25,9 @@
 		BC6A77D228A95EE800E0AD8D /* MapScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77D128A95EE800E0AD8D /* MapScreenPresenter.swift */; };
 		BC6A77D628AC1F2E00E0AD8D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77D528AC1F2E00E0AD8D /* Coordinator.swift */; };
 		BC7363EE28B0D94A00F6BFF3 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7363ED28B0D94A00F6BFF3 /* String+Ext.swift */; };
+		BC7363F728B26D1800F6BFF3 /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC7363F528B26D1800F6BFF3 /* UserModel.xcdatamodeld */; };
+		BC7363FA28B26E4700F6BFF3 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7363F828B26E4700F6BFF3 /* User+CoreDataClass.swift */; };
+		BC7363FB28B26E4700F6BFF3 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7363F928B26E4700F6BFF3 /* User+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		BC6A77D128A95EE800E0AD8D /* MapScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenPresenter.swift; sourceTree = "<group>"; };
 		BC6A77D528AC1F2E00E0AD8D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BC7363ED28B0D94A00F6BFF3 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		BC7363F628B26D1800F6BFF3 /* UserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserModel.xcdatamodel; sourceTree = "<group>"; };
+		BC7363F828B26E4700F6BFF3 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BC7363F928B26E4700F6BFF3 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +169,7 @@
 			children = (
 				BC6A777228A53F7A00E0AD8D /* AppDelegate.swift */,
 				BC6A777428A53F7A00E0AD8D /* SceneDelegate.swift */,
+				BC7363F528B26D1800F6BFF3 /* UserModel.xcdatamodeld */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -179,6 +186,8 @@
 		BC6A77AE28A5523C00E0AD8D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BC7363F828B26E4700F6BFF3 /* User+CoreDataClass.swift */,
+				BC7363F928B26E4700F6BFF3 /* User+CoreDataProperties.swift */,
 				BC6A77AC28A5523700E0AD8D /* Users.swift */,
 			);
 			path = Models;
@@ -369,12 +378,15 @@
 				BC6A77D028A9422800E0AD8D /* MapScreenVC.swift in Sources */,
 				BC6A77A328A53FC800E0AD8D /* InitialVC.swift in Sources */,
 				BC6A777328A53F7A00E0AD8D /* AppDelegate.swift in Sources */,
+				BC7363F728B26D1800F6BFF3 /* UserModel.xcdatamodeld in Sources */,
+				BC7363FA28B26E4700F6BFF3 /* User+CoreDataClass.swift in Sources */,
 				BC6A77B028A55C8C00E0AD8D /* UIView+Ext.swift in Sources */,
 				BC6A77AD28A5523700E0AD8D /* Users.swift in Sources */,
 				BC6A77BD28A7EBCC00E0AD8D /* Constants.swift in Sources */,
 				BC6A777528A53F7A00E0AD8D /* SceneDelegate.swift in Sources */,
 				BC6A77A528A54D6500E0AD8D /* InitialPresenter.swift in Sources */,
 				BC6A77B328A64E0700E0AD8D /* InitialCell.swift in Sources */,
+				BC7363FB28B26E4700F6BFF3 /* User+CoreDataProperties.swift in Sources */,
 				BC6A77D628AC1F2E00E0AD8D /* Coordinator.swift in Sources */,
 				BC7363EE28B0D94A00F6BFF3 /* String+Ext.swift in Sources */,
 				BC6A77B728A650F200E0AD8D /* CustomLabel.swift in Sources */,
@@ -708,6 +720,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BC7363F528B26D1800F6BFF3 /* UserModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BC7363F628B26D1800F6BFF3 /* UserModel.xcdatamodel */,
+			);
+			currentVersion = BC7363F628B26D1800F6BFF3 /* UserModel.xcdatamodel */;
+			path = UserModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BC6A776728A53F7900E0AD8D /* Project object */;
 }

@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MapScreenViewProtocol: AnyObject {
     func setCordinate(latitude: Double, longitude: Double)
 }
 
 protocol MapScreenPresenterProtocol: AnyObject {
+    var view: MapScreenViewProtocol? { get set }
+    var user: Users { get set }
     init (view: MapScreenViewProtocol, user: Users)
     func getCoordinate()
     
@@ -30,5 +33,3 @@ class MapScreenPresenter: MapScreenPresenterProtocol {
                            longitude: user.address.geo.lng.stringToDouble)
     }
 }
-
-
