@@ -14,9 +14,9 @@ class CustomLabel: UILabel {
         configure()
     }
     
-    convenience init(fontSize: CGFloat, weight: UIFont.Weight) {
+    convenience init(textColor: UIColor) {
         self.init(frame: .zero)
-        self.font = .systemFont(ofSize: fontSize, weight: weight)
+        self.textColor = textColor
     }
     
     required init?(coder: NSCoder) {
@@ -24,8 +24,9 @@ class CustomLabel: UILabel {
     }
     
     private func configure() {
-        backgroundColor = .systemBackground
+        //backgroundColor = .systemBackground
         adjustsFontSizeToFitWidth = true
+        font = .systemFont(ofSize: 20, weight: .regular)
         minimumScaleFactor = 0.7
         textAlignment = .left
         translatesAutoresizingMaskIntoConstraints = false

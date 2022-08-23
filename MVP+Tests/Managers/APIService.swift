@@ -13,7 +13,7 @@ import Foundation
 //}
 
 protocol APIServiceProtocol {
-    func getDataWith(completion: @escaping (Result<[String: AnyObject], Error>) -> Void)
+    func getDataWith(completion: @escaping (Result<[[String: AnyObject]], CustomError>) -> Void)
 }
 
 class APIService: NSObject, APIServiceProtocol {
@@ -23,7 +23,7 @@ class APIService: NSObject, APIServiceProtocol {
         return "https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=\(query)&nojsoncallback=1#"
     }()
     
-    func getDataWith(completion: @escaping (Result <[String: AnyObject], Error>) -> Void) {
+    func getDataWith(completion: @escaping (Result <[[String: AnyObject]], CustomError>) -> Void) {
         guard let url = URL(string: endPoint) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard error == nil else {
@@ -34,13 +34,14 @@ class APIService: NSObject, APIServiceProtocol {
                 return }
             do {
                 if let json = try JSONSerialization.jsonObject(with: data, options: [.mutableContainers]) as? [String: AnyObject] {
+                    guard let itemsJsonArray = json["items"] as? [[String: AnyObject]] else {
+                        completion(.failure(.failParsing))
+                        return  }
                     DispatchQueue.main.async {
-                        completion(.success(json))
+                        completion(.success(itemsJsonArray))
                     }
                 }
-            } catch let error {
-                print(error)
-            }
+            } catch { completion(.failure(.failParsing)) }
         }.resume()
     }
 }

@@ -12,8 +12,8 @@ class InitialCell: UITableViewCell {
     static let reuseID = "InitialCell"
     
     let container = UIStackView()
-    let nameLabel = CustomLabel(fontSize: 30, weight: .bold)
-    let usernameLabel = CustomLabel(fontSize: 20, weight: .thin)
+    let nameLabel = CustomLabel(textColor: .label)
+    let usernameLabel = CustomLabel(textColor: .label)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

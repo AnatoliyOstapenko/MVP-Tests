@@ -31,6 +31,10 @@
 		BC7363FD28B4D14D00F6BFF3 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7363FC28B4D14D00F6BFF3 /* APIService.swift */; };
 		BC7363FF28B4D50500F6BFF3 /* FlickrPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7363FE28B4D50500F6BFF3 /* FlickrPresenter.swift */; };
 		BC73640128B4F21700F6BFF3 /* FlickrVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC73640028B4F21700F6BFF3 /* FlickrVC.swift */; };
+		BC73640328B50AB000F6BFF3 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC73640228B50AB000F6BFF3 /* AlertVC.swift */; };
+		BC73640628B50B3900F6BFF3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC73640528B50B3900F6BFF3 /* CustomButton.swift */; };
+		BC73640928B5166E00F6BFF3 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC73640828B5166E00F6BFF3 /* UIViewController+Ext.swift */; };
+		BC73640B28B53DF200F6BFF3 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC73640A28B53DF200F6BFF3 /* CustomError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +83,10 @@
 		BC7363FC28B4D14D00F6BFF3 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		BC7363FE28B4D50500F6BFF3 /* FlickrPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPresenter.swift; sourceTree = "<group>"; };
 		BC73640028B4F21700F6BFF3 /* FlickrVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrVC.swift; sourceTree = "<group>"; };
+		BC73640228B50AB000F6BFF3 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
+		BC73640528B50B3900F6BFF3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		BC73640828B5166E00F6BFF3 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		BC73640A28B53DF200F6BFF3 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +214,7 @@
 			children = (
 				BC6A77AF28A55C8C00E0AD8D /* UIView+Ext.swift */,
 				BC7363ED28B0D94A00F6BFF3 /* String+Ext.swift */,
+				BC73640828B5166E00F6BFF3 /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -223,6 +232,8 @@
 			children = (
 				BC6A77B828A650FF00E0AD8D /* UILabels */,
 				BC6A77B428A64E0E00E0AD8D /* Cells */,
+				BC73640428B50AB700F6BFF3 /* UIViewControllers */,
+				BC73640728B50B3F00F6BFF3 /* UIButtons */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -248,8 +259,25 @@
 			isa = PBXGroup;
 			children = (
 				BC6A77BC28A7EBCC00E0AD8D /* Constants.swift */,
+				BC73640A28B53DF200F6BFF3 /* CustomError.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		BC73640428B50AB700F6BFF3 /* UIViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC73640228B50AB000F6BFF3 /* AlertVC.swift */,
+			);
+			path = UIViewControllers;
+			sourceTree = "<group>";
+		};
+		BC73640728B50B3F00F6BFF3 /* UIButtons */ = {
+			isa = PBXGroup;
+			children = (
+				BC73640528B50B3900F6BFF3 /* CustomButton.swift */,
+			);
+			path = UIButtons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,7 +415,9 @@
 				BC6A77D228A95EE800E0AD8D /* MapScreenPresenter.swift in Sources */,
 				BC6A77D028A9422800E0AD8D /* MapScreenVC.swift in Sources */,
 				BC6A77A328A53FC800E0AD8D /* InitialVC.swift in Sources */,
+				BC73640928B5166E00F6BFF3 /* UIViewController+Ext.swift in Sources */,
 				BC6A777328A53F7A00E0AD8D /* AppDelegate.swift in Sources */,
+				BC73640328B50AB000F6BFF3 /* AlertVC.swift in Sources */,
 				BC7363F728B26D1800F6BFF3 /* UserModel.xcdatamodeld in Sources */,
 				BC7363FA28B26E4700F6BFF3 /* User+CoreDataClass.swift in Sources */,
 				BC6A77B028A55C8C00E0AD8D /* UIView+Ext.swift in Sources */,
@@ -397,8 +427,10 @@
 				BC6A77A528A54D6500E0AD8D /* InitialPresenter.swift in Sources */,
 				BC6A77B328A64E0700E0AD8D /* InitialCell.swift in Sources */,
 				BC7363FB28B26E4700F6BFF3 /* User+CoreDataProperties.swift in Sources */,
+				BC73640B28B53DF200F6BFF3 /* CustomError.swift in Sources */,
 				BC6A77D628AC1F2E00E0AD8D /* Coordinator.swift in Sources */,
 				BC7363EE28B0D94A00F6BFF3 /* String+Ext.swift in Sources */,
+				BC73640628B50B3900F6BFF3 /* CustomButton.swift in Sources */,
 				BC7363FD28B4D14D00F6BFF3 /* APIService.swift in Sources */,
 				BC6A77B728A650F200E0AD8D /* CustomLabel.swift in Sources */,
 				BC7363FF28B4D50500F6BFF3 /* FlickrPresenter.swift in Sources */,

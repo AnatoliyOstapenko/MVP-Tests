@@ -67,4 +67,49 @@ extension UIView {
         ])
     }
     
+    // MARK: - AlertVC Layout
+    
+    func setAlertContainer(view: UIView, container: UIView) {
+        view.addSubview(container)
+        container.layer.cornerRadius = 10
+        container.layer.borderWidth = 2
+        container.layer.borderColor = UIColor.white.cgColor
+        
+        container.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            container.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            container.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            container.heightAnchor.constraint(equalToConstant: 220),
+            container.widthAnchor.constraint(equalToConstant: 280)
+        ])
+    }
+    
+    func setAlertButton(view: UIView, button: UIButton) {
+        view.addSubview(button)
+        
+        
+        NSLayoutConstraint.activate([
+            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding * 2),
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding * 2),
+            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding * 2),
+            button.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
+    
+    func setAlertLabel(view: UIView, button: UIButton, label: UILabel) {
+        label.numberOfLines = 4
+        label.textAlignment = .center
+        view.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: view.topAnchor, constant: padding * 2),
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding * 2),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding * 2),
+            label.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -padding * 2)
+        ])
+    }
+    
+
+    
 }

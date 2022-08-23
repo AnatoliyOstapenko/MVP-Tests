@@ -10,13 +10,13 @@ import UIKit
 
 // Outside
 protocol FlickrViewProtocol: AnyObject {
-    func setDataWith(service: Result<[String : AnyObject], Error>)
+    func setDataWith(service: [[String : AnyObject]])
 }
 
 // Inside
 protocol FlickrPresenterProtocol: AnyObject {
     init(view: FlickrViewProtocol, manager: APIServiceProtocol)
-    func getDataWith()
+    func getDataWith(view: UIViewController)
 }
 
 class FlickrPresenter: FlickrPresenterProtocol {
@@ -28,11 +28,18 @@ class FlickrPresenter: FlickrPresenterProtocol {
         self.manager = manager
     }
     
-    func getDataWith() {
+    func getDataWith(view: UIViewController) {
         manager.getDataWith { [weak self] result in
             guard let self = self else { return }
-//            print(result)
-            self.view?.setDataWith(service: result)
+            switch result {
+            case .success(let service):
+                self.view?.setDataWith(service: service)
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    view.presentAlert(error: error.localizedDescription)
+                }
+            }
+            
         }
     }
 }

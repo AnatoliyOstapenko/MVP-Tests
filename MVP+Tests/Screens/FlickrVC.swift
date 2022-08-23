@@ -15,13 +15,13 @@ class FlickrVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .blue
-        presenter?.getDataWith()
+        presenter?.getDataWith(view: self)
     }
 
 }
 
 extension FlickrVC: FlickrViewProtocol {
-    func setDataWith(service: Result<[String : AnyObject], Error>) {
+    func setDataWith(service: [[String : AnyObject]]) {
     print(service)
         
     }
