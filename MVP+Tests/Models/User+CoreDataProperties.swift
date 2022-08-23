@@ -18,8 +18,8 @@ extension User {
 
     @NSManaged public var name: String?
     @NSManaged public var username: String?
-//    @NSManaged public var latitude: Double
-//    @NSManaged public var longitude: Double
+    @NSManaged public var latitude: Double
+    @NSManaged public var longitude: Double
 
 }
 

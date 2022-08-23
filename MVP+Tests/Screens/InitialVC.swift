@@ -15,6 +15,7 @@ class InitialVC: UIViewController {
     
     var presenter: InitialViewPresenterProtocol?
     var coordinator: CoordinatorProtocol?
+    
     var users: [Users] = []
     var temporaryItems: [User] = []
     
@@ -42,15 +43,22 @@ class InitialVC: UIViewController {
         
         let addButton = UIAlertAction(title: "add", style: .default) { _ in
             guard let textField = alert.textFields, let name = textField[0].text, let username = textField[1].text else { return }
+            self.saveDataToDB(name: name, username: username)
             
-            let user = User(context: self.context)
-            user.name = name
-            user.username = username
         }
         let cancelButton = UIAlertAction(title: "cancel", style: .cancel)
         alert.addAction(addButton)
         alert.addAction(cancelButton)
         self.present(alert, animated: true)
+    }
+    
+    func saveDataToDB(name: String, username: String) {
+        let user = User(context: self.context)
+        user.name = name
+        user.username = username
+        do { try context.save() }
+        catch { print("Saving data to DB fails")}
+        fetchDataFromDB()
     }
     
     func fetchDataFromDB() {
@@ -80,7 +88,8 @@ extension InitialVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.createMapScreen(user: users[indexPath.row])
+//        coordinator?.createMapScreen(user: users[indexPath.row])
+        coordinator?.startFlickr()
     }
 }
 
@@ -90,3 +99,4 @@ extension InitialVC: InitialViewProtocol {
         initialTableView.reloadData()
     }
 }
+
