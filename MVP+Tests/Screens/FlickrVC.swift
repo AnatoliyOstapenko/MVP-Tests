@@ -14,10 +14,9 @@ class FlickrVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .systemTeal
         presenter?.getDataWith(view: self)
     }
-
 }
 
 extension FlickrVC: FlickrViewProtocol {

@@ -11,13 +11,11 @@ import CoreData
 class InitialVC: UIViewController {
     
     let initialTableView = UITableView()
-    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var presenter: InitialViewPresenterProtocol?
     var coordinator: CoordinatorProtocol?
     
     var users: [Users] = []
-    var temporaryItems: [User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,29 +41,12 @@ class InitialVC: UIViewController {
         
         let addButton = UIAlertAction(title: "add", style: .default) { _ in
             guard let textField = alert.textFields, let name = textField[0].text, let username = textField[1].text else { return }
-            self.saveDataToDB(name: name, username: username)
-            
         }
+        
         let cancelButton = UIAlertAction(title: "cancel", style: .cancel)
         alert.addAction(addButton)
         alert.addAction(cancelButton)
         self.present(alert, animated: true)
-    }
-    
-    func saveDataToDB(name: String, username: String) {
-        let user = User(context: self.context)
-        user.name = name
-        user.username = username
-        do { try context.save() }
-        catch { print("Saving data to DB fails")}
-        fetchDataFromDB()
-    }
-    
-    func fetchDataFromDB() {
-        do {
-            self.temporaryItems = try context.fetch(User.fetchRequest())
-            DispatchQueue.main.async { self.initialTableView.reloadData() }
-        } catch { print("There is a problem with catching data from DB")}
     }
     
 }

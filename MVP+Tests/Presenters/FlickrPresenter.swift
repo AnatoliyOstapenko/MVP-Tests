@@ -22,6 +22,7 @@ protocol FlickrPresenterProtocol: AnyObject {
 class FlickrPresenter: FlickrPresenterProtocol {
     weak var view: FlickrViewProtocol?
     var manager: APIServiceProtocol
+    var persistentContainer = CoreDataManager.shared
     
     required init(view: FlickrViewProtocol, manager: APIServiceProtocol) {
         self.view = view
@@ -29,17 +30,31 @@ class FlickrPresenter: FlickrPresenterProtocol {
     }
     
     func getDataWith(view: UIViewController) {
-        manager.getDataWith { [weak self] result in
-            guard let self = self else { return }
+        
+        manager.getDataWith { result in
             switch result {
-            case .success(let service):
-                self.view?.setDataWith(service: service)
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    view.presentAlert(error: error.localizedDescription)
-                }
+            case .success(let data):
+                do {
+                    guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]]else { return }
+                    
+                    let users: [UserModel] = json.compactMap { [weak self] in
+                        guard let self = self,
+                              let name = $0["name"] as? String,
+                              let username = $0["username"] as? String else { return nil }
+                        
+                        let user = UserModel(context: self.persistentContainer.context)
+                        user.user = name
+                        user.username = username
+                        
+                        return user
+                    }
+                    
+                    print(users)
+                    
+                } catch { print(error.localizedDescription)}
+            case .failure(let error): print(error)
             }
-            
         }
     }
+           
 }
