@@ -32,7 +32,7 @@ class InitialPresenter: InitialViewPresenterProtocol {
             guard let self = self else { return }
             switch results {
             case .success(let users):
-                self.saveToDB(users: users) // save user to DB
+                self.saveToDB(users: users) // save users to DB
                 
                 DispatchQueue.main.async {
                 self.view?.setUsers(users: users) }
@@ -47,6 +47,8 @@ class InitialPresenter: InitialViewPresenterProtocol {
             let userDB = UserModel(context: self.persistentManager)
             userDB.user = $0.name
             userDB.username = $0.username
+            userDB.latitude = $0.address.geo.lat.stringToDouble
+            userDB.longitude = $0.address.geo.lng.stringToDouble
             return userDB
         }
         

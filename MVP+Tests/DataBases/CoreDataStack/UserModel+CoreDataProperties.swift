@@ -18,6 +18,8 @@ extension UserModel {
 
     @NSManaged public var user: String?
     @NSManaged public var username: String?
+    @NSManaged public var latitude: Double
+    @NSManaged public var longitude: Double
 
 }
 

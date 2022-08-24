@@ -127,9 +127,6 @@
 		BC6A776628A53F7900E0AD8D = {
 			isa = PBXGroup;
 			children = (
-				BC87A0DC28B6587700829E6F /* UserModel+CoreDataClass.swift */,
-				BC87A0DD28B6587700829E6F /* UserModel+CoreDataProperties.swift */,
-				BC87A0D928B6580F00829E6F /* UserModel.xcdatamodeld */,
 				BC6A777128A53F7A00E0AD8D /* MVP+Tests */,
 				BC6A779228A53F7D00E0AD8D /* MVP+TestsUITests */,
 				BC6A777028A53F7A00E0AD8D /* Products */,
@@ -157,6 +154,7 @@
 				BC2EA81428AC48A500DF0400 /* Coordinator */,
 				BC6A77B128A55C9300E0AD8D /* Extensions */,
 				BC6A77BE28A7EBD400E0AD8D /* Constants */,
+				BC87A0E128B67CE800829E6F /* DataBases */,
 				BC6A77A828A54D9C00E0AD8D /* Support */,
 				BC6A777B28A53F7D00E0AD8D /* Assets.xcassets */,
 				BC6A777D28A53F7D00E0AD8D /* LaunchScreen.storyboard */,
@@ -281,6 +279,24 @@
 				BC73640528B50B3900F6BFF3 /* CustomButton.swift */,
 			);
 			path = UIButtons;
+			sourceTree = "<group>";
+		};
+		BC87A0E028B67CB900829E6F /* CoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				BC87A0DC28B6587700829E6F /* UserModel+CoreDataClass.swift */,
+				BC87A0DD28B6587700829E6F /* UserModel+CoreDataProperties.swift */,
+				BC87A0D928B6580F00829E6F /* UserModel.xcdatamodeld */,
+			);
+			path = CoreDataStack;
+			sourceTree = "<group>";
+		};
+		BC87A0E128B67CE800829E6F /* DataBases */ = {
+			isa = PBXGroup;
+			children = (
+				BC87A0E028B67CB900829E6F /* CoreDataStack */,
+			);
+			path = DataBases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
