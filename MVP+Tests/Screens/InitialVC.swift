@@ -20,7 +20,7 @@ class InitialVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        presenter?.getUsers()
+        presenter?.getUsersNetworking()
     }
     
     private func configure() {
@@ -69,8 +69,7 @@ extension InitialVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        coordinator?.createMapScreen(user: users[indexPath.row])
-        coordinator?.startFlickr()
+        coordinator?.createMapScreen(user: users[indexPath.row])
     }
 }
 

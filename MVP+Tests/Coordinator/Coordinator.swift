@@ -12,7 +12,6 @@ protocol CoordinatorProtocol {
     var navController: UINavigationController { get set }
     func start()
     func createMapScreen(user: Users)
-    func startFlickr()
 }
 
 // InitialVC
@@ -23,7 +22,8 @@ class Coordinator: CoordinatorProtocol {
     func start() {
         let view = InitialVC()
         let manager = NetworkManager()
-        let presenter = InitialPresenter(view: view, manager: manager)
+        let database = CoreDataManager()
+        let presenter = InitialPresenter(view: view, manager: manager, database: database)
 
         view.presenter = presenter
         view.coordinator = self
@@ -33,16 +33,6 @@ class Coordinator: CoordinatorProtocol {
     func createMapScreen(user: Users) {
         let view = MapScreenVC()
         let presenter = MapScreenPresenter(view: view, user: user)
-        
-        view.presenter = presenter
-        view.coordinator = self
-        navController.pushViewController(view, animated: true)
-    }
-    
-    func startFlickr() {
-        let view = FlickrVC()
-        let manager = APIService()
-        let presenter = FlickrPresenter(view: view, manager: manager)
         
         view.presenter = presenter
         view.coordinator = self

@@ -13,25 +13,30 @@ protocol InitialViewProtocol: AnyObject {
 }
 
 protocol InitialViewPresenterProtocol: AnyObject {
-    init (view: InitialViewProtocol, manager: NetworkManagerProtocol)
-    func getUsers()
+    init (view: InitialViewProtocol, manager: NetworkManagerProtocol, database: CoreDataManagerProtocol)
+    func getUsersNetworking()
+    func getUsersDatabase()
 }
 
 class InitialPresenter: InitialViewPresenterProtocol {
+
     weak var view: InitialViewProtocol? // we can use any screens depends on protocol
     let manager: NetworkManagerProtocol
+    let database: CoreDataManagerProtocol
     var persistentManager = CoreDataManager.shared.context
     
-    required init(view: InitialViewProtocol, manager: NetworkManagerProtocol) {
+    required init(view: InitialViewProtocol, manager: NetworkManagerProtocol, database: CoreDataManagerProtocol) {
         self.view = view
         self.manager = manager
+        self.database = database
     }
 
-    func getUsers() {
+    func getUsersNetworking() {
         manager.getUsers { [weak self] results in            
             guard let self = self else { return }
             switch results {
             case .success(let users):
+                self.database.saveUsersToDB(users: users)
 //                self.saveToDB(users: users) // save users to DB
                 
                 DispatchQueue.main.async {
@@ -41,6 +46,12 @@ class InitialPresenter: InitialViewPresenterProtocol {
             }
         }
     }
+    
+    func getUsersDatabase() {
+        
+        
+    }
+    
     
 //    func saveToDB(users: [Users]) {
 //        let usersToDB: [UserModel] = users.compactMap {

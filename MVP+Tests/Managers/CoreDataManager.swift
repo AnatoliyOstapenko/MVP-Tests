@@ -8,11 +8,18 @@
 import Foundation
 import CoreData
 
+protocol CoreDataManagerProtocol {
+    func saveUsersToDB(users: [Users])
+    func saveUserToDB(user: UserModel) -> UserModel?
+    func fetchUsersFromDB() -> [UserModel]?
+    func updateUsers(users: [UserModel])
+    func deleteUser(user: UserModel)
+}
 
-class CoreDataManager {
+class CoreDataManager: CoreDataManagerProtocol {
     
     static let shared = CoreDataManager()
-    var context: NSManagedObjectContext { return persistentContainer.viewContext }
+    var context: NSManagedObjectContext { return persistentContainer.viewContext } // TODO: - Delete this shit after updating MVP model
     
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: Constants.entityName)
@@ -22,8 +29,7 @@ class CoreDataManager {
         return container
     }()
     
-    @discardableResult
-    func saveUsersToDB(users: [Users]) -> [UserModel]? {
+    func saveUsersToDB(users: [Users]) {
         let context = persistentContainer.viewContext
         
         let usersToDB: [UserModel] = users.compactMap {
@@ -34,15 +40,14 @@ class CoreDataManager {
             userDB.username = $0.username
             userDB.latitude = $0.address.geo.lat.stringToDouble
             userDB.longitude = $0.address.geo.lng.stringToDouble
+ 
             return userDB
         }
         
-        do {
-            try context.save()
-            return usersToDB
-        } catch { print("Failed to save users to Database") }
+        do { try context.save() }
+        catch { print("Failed to save users to Database") }
+        print(usersToDB)
         
-        return nil
     }
     
     func saveUserToDB(user: UserModel) -> UserModel? {
@@ -74,7 +79,7 @@ class CoreDataManager {
         
     }
     
-    func deleteUsers(user: UserModel) {
+    func deleteUser(user: UserModel) {
         let context = persistentContainer.viewContext
         context.delete(user)
     }
