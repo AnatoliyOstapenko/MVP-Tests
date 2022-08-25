@@ -21,6 +21,7 @@ class InitialVC: UIViewController {
         super.viewDidLoad()
         configure()
         presenter?.getUsersNetworking()
+        presenter?.getUsersDatabase()
     }
     
     private func configure() {

@@ -9,4 +9,5 @@ import Foundation
 
 enum CustomError: String, Error {
     case failParsing = "JSON Parsing fails, chek out APIService"
+    case failFetchFromDatabase = "Failed to fetch users from Database"
 }

@@ -15,3 +15,9 @@ extension String {
         return 0
     }
 }
+
+extension Double {
+    var doubleToString: String {
+        return String(self)
+    }
+}
