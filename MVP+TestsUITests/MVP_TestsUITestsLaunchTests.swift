@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import MVP_Tests
 
 class MVP_TestsUITestsLaunchTests: XCTestCase {
 
@@ -32,26 +33,3 @@ class MVP_TestsUITestsLaunchTests: XCTestCase {
     
     
 }
-class Solution {
-    func solution(_ num: Int) -> Int {
-      return 0
-    }
-}
-
-
-
-class SolutionTest: XCTestCase {
-    func testSolution() {
-        // Assert
-        let solutionObject = Solution()
-        let num = 10
-        // Act
-        let result = solutionObject.solution(num)
-        
-        XCTAssertEqual(result, 23)
-//        XCTAssertEqual(solution(10), 23)
-//        XCTAssertEqual(solution(20), 78)
-//        XCTAssertEqual(solution(200), 9168)
-    }
-}
-

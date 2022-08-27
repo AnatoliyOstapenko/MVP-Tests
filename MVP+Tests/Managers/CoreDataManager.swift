@@ -14,12 +14,10 @@ protocol CoreDataManagerProtocol {
     func fetchUsersFromDB(completion: @escaping(Result<[UserModel], CustomError>) -> Void)
     func updateUsers(users: [UserModel])
     func deleteUser(user: UserModel)
+    func deleteAllUsers()
 }
 
 class CoreDataManager: CoreDataManagerProtocol {
-
-    static let shared = CoreDataManager()
-    var context: NSManagedObjectContext { return persistentContainer.viewContext } // TODO: - Delete this shit after updating MVP model
     
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: Constants.entityName)
@@ -32,20 +30,20 @@ class CoreDataManager: CoreDataManagerProtocol {
     func saveUsersToDB(users: [Users]) {
         let context = persistentContainer.viewContext
         
-        let usersToDB: [UserModel] = users.compactMap {
-//            let userDB = UserModel(context: persistentContainer.viewContext)
-            let userDB = NSEntityDescription.insertNewObject(forEntityName: Constants.entityName, into: context) as! UserModel
-            
+        let arr = users.compactMap {
+//            let userDB = NSEntityDescription.insertNewObject(forEntityName: Constants.entityName, into: context) as! UserModel
+            let userDB = UserModel(context: context)
             userDB.user = $0.name
             userDB.username = $0.username
             userDB.latitude = $0.address.geo.lat.stringToDouble
             userDB.longitude = $0.address.geo.lng.stringToDouble
- 
-            return userDB
+//            return userDB
+            
         }
+        print("Total users saving in CoreDataManager \(arr.count)")
         do { try context.save() }
         catch { print("Failed to save users to Database") }
-        print(usersToDB)
+
     }
     
     func fetchUsersFromDB(completion: @escaping(Result<[UserModel], CustomError>) -> Void) {
@@ -53,14 +51,10 @@ class CoreDataManager: CoreDataManagerProtocol {
 
         do {
             let users = try context.fetch(NSFetchRequest<UserModel>(entityName: Constants.entityName))
+            print("Total users in CoreDataManager \(users.count)")
             completion(.success(users))
-           
-            
         } catch {  completion(.failure(.failFetchFromDatabase)) }
-
     }
-    
-    
     
     func saveUserToDB(user: UserModel) -> UserModel? {
         let context = persistentContainer.viewContext
@@ -73,7 +67,6 @@ class CoreDataManager: CoreDataManagerProtocol {
         return nil
     }
     
-    
     func updateUsers(users: [UserModel]) {
         let context = persistentContainer.viewContext
         do { try context.save() }
@@ -81,17 +74,19 @@ class CoreDataManager: CoreDataManagerProtocol {
         
     }
     
+    func deleteAllUsers() {
+        print("deleteAllUsers in CoreData triggered")
+        let context = persistentContainer.viewContext
+        do {
+            let users = try context.fetch(NSFetchRequest<UserModel>(entityName: Constants.entityName))
+            for user in users {
+                context.delete(user)
+            }
+            try context.save()
+        } catch { print("oops")}
+    }
     func deleteUser(user: UserModel) {
         let context = persistentContainer.viewContext
         context.delete(user)
     }
-   
-//    func saveContext() {
-//        let context = persistentContainer.viewContext
-//        guard context.hasChanges else { return }
-//        do { try context.save() }
-//        catch let error as NSError { print("Error: \(error), \(error.userInfo)") }
-//    }
-//
-    
 }

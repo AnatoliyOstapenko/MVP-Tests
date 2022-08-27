@@ -21,18 +21,33 @@ class InitialVC: UIViewController {
         super.viewDidLoad()
         configure()
         presenter?.getUsersNetworking()
-        presenter?.getUsersDatabase()
     }
     
     private func configure() {
         title = String(describing: InitialVC.self)
         view.setInitialTableView(view: view, tableView: initialTableView, vc: self)
-        setBarButton()
+        setBarButtons()
     }
     
-    private func setBarButton() {
-        let barButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed(_:)))
-        navigationItem.rightBarButtonItem = barButton
+    private func setBarButtons() {
+        let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed(_:)))
+        navigationItem.rightBarButtonItem = addBarButton
+        let deleteBarButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteButtonPressed(_:)))
+        navigationItem.leftBarButtonItem = deleteBarButton
+    }
+    
+    @objc private func deleteButtonPressed(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Delete all users", message: "Are you sure if you want to delete all users from the list", preferredStyle: .alert)
+        let deleteButton = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+            guard let self = self else { return }
+            print("Total users: \(self.users.count)")
+            self.presenter?.deleteAllUsers()
+            self.presenter?.getUsersDatabase()
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(deleteButton)
+        alert.addAction(cancelButton)
+        self.present(alert, animated: true)
     }
     
     @objc private func addButtonPressed(_ sender: UIBarButtonItem) {

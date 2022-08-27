@@ -16,6 +16,7 @@ protocol InitialViewPresenterProtocol: AnyObject {
     init (view: InitialViewProtocol, manager: NetworkManagerProtocol, database: CoreDataManagerProtocol)
     func getUsersNetworking()
     func getUsersDatabase()
+    func deleteAllUsers()
 }
 
 class InitialPresenter: InitialViewPresenterProtocol {
@@ -38,6 +39,7 @@ class InitialPresenter: InitialViewPresenterProtocol {
             switch results {
             case .success(let users):
                 self.database.saveUsersToDB(users: users)
+                self.getUsersDatabase()
             case .failure(let error): print(error.localizedDescription)
                 
             }
@@ -54,6 +56,7 @@ class InitialPresenter: InitialViewPresenterProtocol {
                     let user: Users = Users(name: $0.user ?? "", username: $0.username ?? "", address: Address.init(geo: Geo.init(lat: $0.latitude.doubleToString, lng: $0.longitude.doubleToString)))
                     return user
                 }
+                print("Total user from DB \(convertUsersFromDBToModel.count)")
                 DispatchQueue.main.async {
                     self.view?.setUsers(users: convertUsersFromDBToModel)
                 }
@@ -62,21 +65,11 @@ class InitialPresenter: InitialViewPresenterProtocol {
                 
             }
         }
-        
     }
     
-    
-//    func saveToDB(users: [Users]) {
-//        let usersToDB: [UserModel] = users.compactMap {
-//            let userDB = UserModel(context: self.persistentManager)
-//            userDB.user = $0.name
-//            userDB.username = $0.username
-//            userDB.latitude = $0.address.geo.lat.stringToDouble
-//            userDB.longitude = $0.address.geo.lng.stringToDouble
-//            return userDB
-//        }
-//
-//        print(usersToDB)
-//    }
+    func deleteAllUsers() {
+        print("deleteAllUsers tagget")
+        database.deleteAllUsers()
+    }
 }
 
