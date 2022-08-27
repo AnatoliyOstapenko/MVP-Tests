@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC25E88128BACF8700F5107D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25E88028BACF8700F5107D /* CustomTextField.swift */; };
 		BC6A777328A53F7A00E0AD8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A777228A53F7A00E0AD8D /* AppDelegate.swift */; };
 		BC6A777528A53F7A00E0AD8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A777428A53F7A00E0AD8D /* SceneDelegate.swift */; };
 		BC6A777C28A53F7D00E0AD8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC6A777B28A53F7D00E0AD8D /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC25E88028BACF8700F5107D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		BC6A776F28A53F7A00E0AD8D /* MVP+Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVP+Tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC6A777228A53F7A00E0AD8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC6A777428A53F7A00E0AD8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC25E88228BACF8C00F5107D /* UITextFields */ = {
+			isa = PBXGroup;
+			children = (
+				BC25E88028BACF8700F5107D /* CustomTextField.swift */,
+			);
+			path = UITextFields;
+			sourceTree = "<group>";
+		};
 		BC2EA81428AC48A500DF0400 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +236,7 @@
 				BC6A77B428A64E0E00E0AD8D /* Cells */,
 				BC73640428B50AB700F6BFF3 /* UIViewControllers */,
 				BC73640728B50B3F00F6BFF3 /* UIButtons */,
+				BC25E88228BACF8C00F5107D /* UITextFields */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -424,6 +435,7 @@
 				BC6A77D228A95EE800E0AD8D /* MapScreenPresenter.swift in Sources */,
 				BC6A77D028A9422800E0AD8D /* MapScreenVC.swift in Sources */,
 				BC6A77A328A53FC800E0AD8D /* InitialVC.swift in Sources */,
+				BC25E88128BACF8700F5107D /* CustomTextField.swift in Sources */,
 				BC73640928B5166E00F6BFF3 /* UIViewController+Ext.swift in Sources */,
 				BC6A777328A53F7A00E0AD8D /* AppDelegate.swift in Sources */,
 				BC73640328B50AB000F6BFF3 /* AlertVC.swift in Sources */,

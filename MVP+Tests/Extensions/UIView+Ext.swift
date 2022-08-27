@@ -71,9 +71,10 @@ extension UIView {
     
     func setAlertContainer(view: UIView, container: UIView) {
         view.addSubview(container)
+        container.backgroundColor = .white
         container.layer.cornerRadius = 10
         container.layer.borderWidth = 2
-        container.layer.borderColor = UIColor.white.cgColor
+        container.layer.borderColor = UIColor.red.cgColor
         
         container.translatesAutoresizingMaskIntoConstraints = false
         

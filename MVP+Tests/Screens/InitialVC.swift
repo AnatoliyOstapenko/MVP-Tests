@@ -52,11 +52,15 @@ class InitialVC: UIViewController {
     
     @objc private func addButtonPressed(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add a new user", message: "type name and username", preferredStyle: .alert)
-        alert.addTextField() // for name
-        alert.addTextField() // for username
         
+        alert.addTextField { textField in textField.placeholder = "name" }
+        alert.addTextField { textField in textField.placeholder = "username" }
+
         let addButton = UIAlertAction(title: "add", style: .default) { _ in
-            guard let textField = alert.textFields, let name = textField[0].text, let username = textField[1].text else { return }
+        guard let textField = alert.textFields, let name = textField[0].text, let username = textField[1].text, !name.isEmpty, !username.isEmpty else {
+            self.presentAlert(error: "Please type name and username to save")
+            return
+        }
             let user = Users(name: name, username: username, address: Address(geo: Geo(lat: "40.7128", lng: "74.0060")))
             self.presenter?.saveNewUser(user: user)
             self.users.append(user)
@@ -88,7 +92,24 @@ extension InitialVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.createMapScreen(user: users[indexPath.row])
+        let alert = UIAlertController(title: "Wold you like to delete or see user location", message: nil, preferredStyle: .actionSheet)
+        let deleteButton = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+            guard let self = self else { return }
+            self.presenter?.deleteUser(user: self.users[indexPath.row])
+            self.users.remove(at: indexPath.row)
+            self.initialTableView.reloadData()
+            
+        }
+        let locationButton = UIAlertAction(title: "See location", style: .default) { [weak self] _ in
+            guard let self = self else { return }
+            self.coordinator?.createMapScreen(user: self.users[indexPath.row])
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(deleteButton)
+        alert.addAction(locationButton)
+        alert.addAction(cancelButton)
+        present(alert, animated: true)
     }
 }
 
@@ -98,4 +119,3 @@ extension InitialVC: InitialViewProtocol {
         initialTableView.reloadData()
     }
 }
-

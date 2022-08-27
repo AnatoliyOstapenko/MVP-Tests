@@ -10,7 +10,7 @@ import UIKit
 class AlertVC: UIViewController {
     
     let alertContainer = UIView()
-    let alertLabel = CustomLabel(textColor: .white)
+    let alertLabel = CustomLabel(textColor: .red)
     let alertButton = CustomButton(textButton: "got it thanks")
 
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ class AlertVC: UIViewController {
     }
     
     private func configure() {
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         alertContainer.setAlertContainer(view: view, container: alertContainer)
         alertButton.setAlertButton(view: alertContainer, button: alertButton)
         alertLabel.setAlertLabel(view: alertContainer, button: alertButton, label: alertLabel)

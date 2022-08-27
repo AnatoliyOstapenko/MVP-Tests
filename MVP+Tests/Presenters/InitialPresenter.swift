@@ -18,6 +18,7 @@ protocol InitialViewPresenterProtocol: AnyObject {
     func getUsersDatabase()
     func deleteAllUsers()
     func saveNewUser(user: Users)
+    func deleteUser(user: Users)
 }
 
 class InitialPresenter: InitialViewPresenterProtocol {
@@ -80,5 +81,6 @@ class InitialPresenter: InitialViewPresenterProtocol {
     
     func deleteAllUsers() { database.deleteAllUsers() }
     func saveNewUser(user: Users) { database.saveUserToDB(user: user) }
+    func deleteUser(user: Users) {database.deleteUser(user: user)}
 }
 
