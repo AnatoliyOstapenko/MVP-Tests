@@ -57,6 +57,10 @@ class InitialVC: UIViewController {
         
         let addButton = UIAlertAction(title: "add", style: .default) { _ in
             guard let textField = alert.textFields, let name = textField[0].text, let username = textField[1].text else { return }
+            let user = Users(name: name, username: username, address: Address(geo: Geo(lat: "40.7128", lng: "74.0060")))
+            self.presenter?.saveNewUser(user: user)
+            self.users.append(user)
+            self.initialTableView.reloadData()
         }
         
         let cancelButton = UIAlertAction(title: "cancel", style: .cancel)
@@ -64,7 +68,6 @@ class InitialVC: UIViewController {
         alert.addAction(cancelButton)
         self.present(alert, animated: true)
     }
-    
 }
 
 extension InitialVC: UITableViewDataSource {

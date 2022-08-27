@@ -8,8 +8,8 @@
 import Foundation
 
 struct Users: Codable {
-    let name: String
-    let username: String
+    var name: String
+    var username: String
     let address: Address
 }
 
@@ -18,6 +18,7 @@ struct Address: Codable {
 }
 
 struct Geo: Codable {
-    let lat: String
-    let lng: String
+    var lat: String
+    var lng: String
 }
+

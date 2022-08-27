@@ -10,10 +10,9 @@ import CoreData
 
 protocol CoreDataManagerProtocol {
     func saveUsersToDB(users: [Users])
-    func saveUserToDB(user: UserModel) -> UserModel?
+    func saveUserToDB(user: Users)
     func fetchUsersFromDB(completion: @escaping(Result<[UserModel], CustomError>) -> Void)
-    func updateUsers(users: [UserModel])
-    func deleteUser(user: UserModel)
+    func deleteUser(user: Users)
     func deleteAllUsers()
 }
 
@@ -30,17 +29,14 @@ class CoreDataManager: CoreDataManagerProtocol {
     func saveUsersToDB(users: [Users]) {
         let context = persistentContainer.viewContext
         
-        let arr = users.compactMap {
-//            let userDB = NSEntityDescription.insertNewObject(forEntityName: Constants.entityName, into: context) as! UserModel
+        
+        _ = users.compactMap {
             let userDB = UserModel(context: context)
             userDB.user = $0.name
             userDB.username = $0.username
             userDB.latitude = $0.address.geo.lat.stringToDouble
             userDB.longitude = $0.address.geo.lng.stringToDouble
-//            return userDB
-            
         }
-        print("Total users saving in CoreDataManager \(arr.count)")
         do { try context.save() }
         catch { print("Failed to save users to Database") }
 
@@ -56,22 +52,16 @@ class CoreDataManager: CoreDataManagerProtocol {
         } catch {  completion(.failure(.failFetchFromDatabase)) }
     }
     
-    func saveUserToDB(user: UserModel) -> UserModel? {
+    func saveUserToDB(user: Users) {
         let context = persistentContainer.viewContext
         let userDB = NSEntityDescription.insertNewObject(forEntityName: Constants.entityName, into: context) as! UserModel
-        do {
-            try context.save()
-            return userDB
-        } catch { print("Failed to save user to Database") }
+        userDB.user = user.name
+        userDB.username = user.username
+        userDB.latitude = user.address.geo.lat.stringToDouble
+        userDB.longitude = user.address.geo.lng.stringToDouble
         
-        return nil
-    }
-    
-    func updateUsers(users: [UserModel]) {
-        let context = persistentContainer.viewContext
         do { try context.save() }
-        catch { print("Failed to update data from Database") }
-        
+        catch { print("Failed to save user to Database") }
     }
     
     func deleteAllUsers() {
@@ -85,8 +75,17 @@ class CoreDataManager: CoreDataManagerProtocol {
             try context.save()
         } catch { print("oops")}
     }
-    func deleteUser(user: UserModel) {
+    
+    func deleteUser(user: Users) {
         let context = persistentContainer.viewContext
-        context.delete(user)
+        var convertedUser: UserModel {
+            let userDB = NSEntityDescription.insertNewObject(forEntityName: Constants.entityName, into: context) as! UserModel
+            userDB.user = user.name
+            userDB.username = user.username
+            userDB.latitude = user.address.geo.lat.stringToDouble
+            userDB.longitude = user.address.geo.lng.stringToDouble
+            return userDB
+        }
+        context.delete(convertedUser)
     }
 }
