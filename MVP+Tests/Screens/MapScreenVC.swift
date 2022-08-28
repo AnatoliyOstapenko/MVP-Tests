@@ -88,7 +88,6 @@ extension MapScreenVC: MapScreenViewProtocol {
     func setCordinate(latitude: Double, longitude: Double) {
         self.latitude = latitude
         self.longitude = longitude
-        print("latitude = \(latitude), longitude = \(longitude)")
     }
 }
 

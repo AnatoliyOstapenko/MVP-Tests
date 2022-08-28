@@ -40,7 +40,6 @@ class InitialVC: UIViewController {
         let alert = UIAlertController(title: "Delete all users", message: "Are you sure if you want to delete all users from the list", preferredStyle: .alert)
         let deleteButton = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
             guard let self = self else { return }
-            print("Total users: \(self.users.count)")
             self.presenter?.deleteAllUsers()
             self.presenter?.getUsersDatabase()
         }
@@ -81,7 +80,7 @@ extension InitialVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: InitialCell.reuseID, for: indexPath) as! InitialCell
-        cell.updateCell(users: users[indexPath.row])
+        cell.updateCell(users: users[indexPath.row], number: indexPath.row)
         return cell
     }
 }

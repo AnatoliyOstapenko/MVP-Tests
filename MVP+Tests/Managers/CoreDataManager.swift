@@ -28,8 +28,7 @@ class CoreDataManager: CoreDataManagerProtocol {
     
     func saveUsersToDB(users: [Users]) {
         let context = persistentContainer.viewContext
-        
-        
+
         _ = users.compactMap {
             let userDB = UserModel(context: context)
             userDB.user = $0.name
@@ -47,7 +46,6 @@ class CoreDataManager: CoreDataManagerProtocol {
 
         do {
             let users = try context.fetch(NSFetchRequest<UserModel>(entityName: Constants.entityName))
-            print("Total users in CoreDataManager \(users.count)")
             completion(.success(users))
         } catch {  completion(.failure(.failFetchFromDatabase)) }
     }
@@ -65,7 +63,6 @@ class CoreDataManager: CoreDataManagerProtocol {
     }
     
     func deleteAllUsers() {
-        print("deleteAllUsers in CoreData triggered")
         let context = persistentContainer.viewContext
         do {
             let users = try context.fetch(NSFetchRequest<UserModel>(entityName: Constants.entityName))

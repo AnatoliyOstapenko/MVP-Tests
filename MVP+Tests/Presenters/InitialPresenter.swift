@@ -42,21 +42,21 @@ class InitialPresenter: InitialViewPresenterProtocol {
             guard let self = self else { return }
             switch results {
             case .success(let users):
-//                self.filterArrays(databaseUsers: self.databaseUsers, gotUsers: users)
-                self.database.saveUsersToDB(users: users)
+                self.saveNewUsers(databaseUsers: self.databaseUsers, gotUsers: users)
                 self.getUsersDatabase()
             case .failure(let error): print(error.localizedDescription)
             }
         }
     }
     
-//    func filterArrays(databaseUsers: [Users], gotUsers: [Users]) {
-//        let users = gotUsers.filter { databaseUsers.contains($0)}
-//        
-//        var array: [Users] = []
-//        array.append(contentsOf: users)
-//        database.saveUsersToDB(users: array)
-//    }
+    func saveNewUsers(databaseUsers: [Users], gotUsers: [Users]) {
+        guard !databaseUsers.isEmpty else {
+            database.saveUsersToDB(users: gotUsers)
+            return
+        }
+        let newUsers = gotUsers.filter { !databaseUsers.contains($0)}
+        database.saveUsersToDB(users: newUsers)
+    }
     
     // Get users from Database and send them to InitialVC
     
@@ -83,4 +83,5 @@ class InitialPresenter: InitialViewPresenterProtocol {
     func saveNewUser(user: Users) { database.saveUserToDB(user: user) }
     func deleteUser(user: Users) {database.deleteUser(user: user)}
 }
+
 

@@ -28,15 +28,8 @@ class InitialCell: UITableViewCell {
         contentView.setStackView(view: contentView, stackView: container, nameLabel: nameLabel, usernameLabel: usernameLabel)
     }
     
-    func updateCell(users: Users) {
-        nameLabel.text = users.name
+    func updateCell(users: Users, number: Int) {
+        nameLabel.text = "\(number + 1): \(users.name)"
         usernameLabel.text = users.username
     }
-    
-    func fakeCell(name: String) {
-        nameLabel.text = name.uppercased()
-        usernameLabel.text = "aka: \(name)"
-    }
-
-
 }
