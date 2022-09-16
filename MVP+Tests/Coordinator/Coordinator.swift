@@ -12,6 +12,7 @@ protocol CoordinatorProtocol {
     var navController: UINavigationController { get set }
     func start()
     func createMapScreen(user: Users)
+    func goToInitialScreen()
 }
 
 // InitialVC
@@ -20,15 +21,35 @@ class Coordinator: CoordinatorProtocol {
     init(navController: UINavigationController) {self.navController = navController }
     
     func start() {
-        let view = InitialVC()
-        let manager = NetworkManager()
-        let database = CoreDataManager()
-        let presenter = InitialPresenter(view: view, manager: manager, database: database)
+        let view = CredentialsVC()
+        let presenter = CredentialsPresenter(view: view)
 
         view.presenter = presenter
         view.coordinator = self
         navController.pushViewController(view, animated: true)
     }
+    
+    func goToInitialScreen() {
+        let view = InitialVC()
+        let manager = NetworkManager()
+        let database = CoreDataManager()
+        let presenter = InitialPresenter(view: view, manager: manager, database: database)
+        
+        view.presenter = presenter
+        view.coordinator = self
+        navController.pushViewController(view, animated: true)
+    }
+    
+//    func start() {
+//        let view = InitialVC()
+//        let manager = NetworkManager()
+//        let database = CoreDataManager()
+//        let presenter = InitialPresenter(view: view, manager: manager, database: database)
+//
+//        view.presenter = presenter
+//        view.coordinator = self
+//        navController.pushViewController(view, animated: true)
+//    }
     
     func createMapScreen(user: Users) {
         let view = MapScreenVC()

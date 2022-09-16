@@ -20,8 +20,8 @@ class CustomTextField: UITextField {
     
     private func configure() {
         layer.cornerRadius = 10
-        layer.borderColor = UIColor.systemBlue.cgColor
-        layer.borderWidth = 2
+        layer.borderColor = UIColor.darkGray.cgColor
+        layer.borderWidth = 3
         textAlignment = .center
         font = .preferredFont(forTextStyle: .headline)
         adjustsFontSizeToFitWidth = true

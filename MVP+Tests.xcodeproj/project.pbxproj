@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BC25E88128BACF8700F5107D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25E88028BACF8700F5107D /* CustomTextField.swift */; };
+		BC2B80E128D3643E00E837A6 /* CredentialsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B80E028D3643E00E837A6 /* CredentialsVC.swift */; };
+		BC2B80E328D36AAE00E837A6 /* CredentialsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B80E228D36AAE00E837A6 /* CredentialsPresenter.swift */; };
+		BC2FC42428D49903006A7D71 /* LogoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FC42328D49903006A7D71 /* LogoLabel.swift */; };
 		BC6A777328A53F7A00E0AD8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A777228A53F7A00E0AD8D /* AppDelegate.swift */; };
 		BC6A777528A53F7A00E0AD8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A777428A53F7A00E0AD8D /* SceneDelegate.swift */; };
 		BC6A777C28A53F7D00E0AD8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC6A777B28A53F7D00E0AD8D /* Assets.xcassets */; };
@@ -55,6 +58,9 @@
 
 /* Begin PBXFileReference section */
 		BC25E88028BACF8700F5107D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		BC2B80E028D3643E00E837A6 /* CredentialsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsVC.swift; sourceTree = "<group>"; };
+		BC2B80E228D36AAE00E837A6 /* CredentialsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsPresenter.swift; sourceTree = "<group>"; };
+		BC2FC42328D49903006A7D71 /* LogoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoLabel.swift; sourceTree = "<group>"; };
 		BC6A776F28A53F7A00E0AD8D /* MVP+Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVP+Tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC6A777228A53F7A00E0AD8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC6A777428A53F7A00E0AD8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				BC6A77A228A53FC800E0AD8D /* InitialVC.swift */,
+				BC2B80E028D3643E00E837A6 /* CredentialsVC.swift */,
 				BC6A77CF28A9422800E0AD8D /* MapScreenVC.swift */,
 			);
 			path = Screens;
@@ -199,6 +206,7 @@
 			children = (
 				BC6A77A428A54D6500E0AD8D /* InitialPresenter.swift */,
 				BC6A77D128A95EE800E0AD8D /* MapScreenPresenter.swift */,
+				BC2B80E228D36AAE00E837A6 /* CredentialsPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -245,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				BC6A77B628A650F200E0AD8D /* CustomLabel.swift */,
+				BC2FC42328D49903006A7D71 /* LogoLabel.swift */,
 			);
 			name = UILabels;
 			sourceTree = "<group>";
@@ -438,6 +447,7 @@
 				BC25E88128BACF8700F5107D /* CustomTextField.swift in Sources */,
 				BC73640928B5166E00F6BFF3 /* UIViewController+Ext.swift in Sources */,
 				BC6A777328A53F7A00E0AD8D /* AppDelegate.swift in Sources */,
+				BC2FC42428D49903006A7D71 /* LogoLabel.swift in Sources */,
 				BC73640328B50AB000F6BFF3 /* AlertVC.swift in Sources */,
 				BC87A0DB28B6580F00829E6F /* UserModel.xcdatamodeld in Sources */,
 				BC6A77B028A55C8C00E0AD8D /* UIView+Ext.swift in Sources */,
@@ -445,6 +455,8 @@
 				BC6A77BD28A7EBCC00E0AD8D /* Constants.swift in Sources */,
 				BC87A0DE28B6587700829E6F /* UserModel+CoreDataClass.swift in Sources */,
 				BC6A777528A53F7A00E0AD8D /* SceneDelegate.swift in Sources */,
+				BC2B80E328D36AAE00E837A6 /* CredentialsPresenter.swift in Sources */,
+				BC2B80E128D3643E00E837A6 /* CredentialsVC.swift in Sources */,
 				BC6A77A528A54D6500E0AD8D /* InitialPresenter.swift in Sources */,
 				BC6A77B328A64E0700E0AD8D /* InitialCell.swift in Sources */,
 				BC73640B28B53DF200F6BFF3 /* CustomError.swift in Sources */,

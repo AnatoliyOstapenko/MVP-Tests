@@ -11,9 +11,11 @@ class InitialCell: UITableViewCell {
     
     static let reuseID = "InitialCell"
     
-    let container = UIStackView()
+    let mainContainer = UIStackView()
+    let rightContainer = UIStackView()
     let nameLabel = CustomLabel(textColor: .label)
     let usernameLabel = CustomLabel(textColor: .label)
+    let logoLabel = LogoLabel(frame: .zero)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -25,8 +27,10 @@ class InitialCell: UITableViewCell {
     }
     
     private func configure() {
-        contentView.setStackView(view: contentView, stackView: container, nameLabel: nameLabel, usernameLabel: usernameLabel)
+        mainContainer.setMainContainer(view: contentView, stackView: mainContainer, label: logoLabel, rightContainer: rightContainer)
+        rightContainer.setRightStackView(stackView: rightContainer, nameLabel: nameLabel, usernameLabel: usernameLabel)
     }
+
     
     func updateCell(users: Users, number: Int) {
         nameLabel.text = "\(number + 1): \(users.name)"

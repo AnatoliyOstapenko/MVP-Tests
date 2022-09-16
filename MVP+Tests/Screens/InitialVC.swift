@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 
+
 class InitialVC: UIViewController {
     
     let initialTableView = UITableView()
@@ -33,7 +34,11 @@ class InitialVC: UIViewController {
         let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed(_:)))
         navigationItem.rightBarButtonItem = addBarButton
         let deleteBarButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteButtonPressed(_:)))
-        navigationItem.leftBarButtonItem = deleteBarButton
+        let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonPressed(_:)))
+        navigationItem.leftBarButtonItems = [cancelBarButton, deleteBarButton]
+    }
+    @objc private func cancelButtonPressed(_ sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
     }
     
     @objc private func deleteButtonPressed(_ sender: UIBarButtonItem) {
@@ -87,7 +92,7 @@ extension InitialVC: UITableViewDataSource {
 
 extension InitialVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 100
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

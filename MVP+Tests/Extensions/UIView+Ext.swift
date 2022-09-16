@@ -29,30 +29,43 @@ extension UIView {
     }
     
     // MARK: - InitialCell Layout
-    func setStackView(view: UIView, stackView: UIStackView, nameLabel: UILabel, usernameLabel: UILabel) {
+    func setMainContainer(view: UIView, stackView: UIStackView, label: UILabel, rightContainer: UIStackView) {
         view.addSubview(stackView)
-        stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
-        stackView.addArrangedSubview(nameLabel)
-        stackView.addArrangedSubview(usernameLabel)
+        stackView.distribution = .fill
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(rightContainer)
         stackView.layer.cornerRadius = 10
         stackView.layer.borderWidth = 1
-        stackView.layer.borderColor = UIColor.systemCyan.cgColor
+        stackView.layer.borderColor = UIColor.systemPink.cgColor
+        
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        label.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
-            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding)
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding),
         ])
         
         NSLayoutConstraint.activate([
-            nameLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: padding),
-            usernameLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: padding)
+            label.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 5),
+            label.topAnchor.constraint(equalTo: stackView.topAnchor),
+            label.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
+            label.widthAnchor.constraint(lessThanOrEqualToConstant: 40)
         ])
     }
-    
+
+    func setRightStackView(stackView: UIStackView, nameLabel: UILabel, usernameLabel: UILabel) {
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.addArrangedSubview(nameLabel)
+        stackView.addArrangedSubview(usernameLabel)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+    }
+
     // MARK: - MapScreenVC Layout
     
     func setMapView(view: UIView, mapView: UIView) {
@@ -108,6 +121,27 @@ extension UIView {
             label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding * 2),
             label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding * 2),
             label.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -padding * 2)
+        ])
+    }
+    
+    // MARK: - CredentialsVC
+    
+    func setCredentialsStackView(view: UIView, stack: UIStackView, login: UITextField, password: UITextField) {
+        view.addSubview(stack)
+        stack.addArrangedSubview(login)
+        stack.addArrangedSubview(password)
+        stack.axis = .vertical
+        stack.distribution = .fillEqually
+        login.placeholder = "Login"
+        password.placeholder = "Password"
+        stack.spacing = 5
+        
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stack.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
+            stack.heightAnchor.constraint(equalToConstant: 160)
         ])
     }
     
