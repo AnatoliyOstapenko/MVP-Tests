@@ -12,4 +12,5 @@ enum Constants {
     static let zoom: Double = 10000000
     static let entityName = "UserModel"
     static let logo = "logoPositive"
+    static let ok = "OK"
 }

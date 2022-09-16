@@ -11,14 +11,21 @@ import UIKit
 protocol CredentialViewProtocol: AnyObject {}
 protocol CredentialPresenterProtocol: AnyObject {
     var view: CredentialViewProtocol? {get set}
-    init(view: CredentialViewProtocol)
+    init(view: CredentialViewProtocol, validator: PasswordValidatorProtocol)
+    func userVarification(login: UITextField, password: UITextField) -> Bool
 }
 
 class CredentialsPresenter: CredentialPresenterProtocol {
     weak var view: CredentialViewProtocol?
+    var validator: PasswordValidatorProtocol
     
-    required init(view: CredentialViewProtocol) {
+    required init(view: CredentialViewProtocol, validator: PasswordValidatorProtocol) {
         self.view = view
+        self.validator = validator
+    }
+    
+    func userVarification(login: UITextField, password: UITextField) -> Bool {
+        validator.validatetextFields(loginTextField: login, passwordTextField: password)
     }
     
     

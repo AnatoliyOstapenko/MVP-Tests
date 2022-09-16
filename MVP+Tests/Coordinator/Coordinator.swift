@@ -22,7 +22,8 @@ class Coordinator: CoordinatorProtocol {
     
     func start() {
         let view = CredentialsVC()
-        let presenter = CredentialsPresenter(view: view)
+        let validator = PasswordValidator()
+        let presenter = CredentialsPresenter(view: view, validator: validator)
 
         view.presenter = presenter
         view.coordinator = self

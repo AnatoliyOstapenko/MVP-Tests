@@ -11,12 +11,12 @@
 		BC2B80E128D3643E00E837A6 /* CredentialsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B80E028D3643E00E837A6 /* CredentialsVC.swift */; };
 		BC2B80E328D36AAE00E837A6 /* CredentialsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B80E228D36AAE00E837A6 /* CredentialsPresenter.swift */; };
 		BC2FC42428D49903006A7D71 /* LogoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FC42328D49903006A7D71 /* LogoLabel.swift */; };
+		BC2FC42628D4BF0F006A7D71 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FC42528D4BF0F006A7D71 /* PasswordValidator.swift */; };
+		BC2FC43528D4D991006A7D71 /* PasswordValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FC43428D4D991006A7D71 /* PasswordValidatorTests.swift */; };
 		BC6A777328A53F7A00E0AD8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A777228A53F7A00E0AD8D /* AppDelegate.swift */; };
 		BC6A777528A53F7A00E0AD8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A777428A53F7A00E0AD8D /* SceneDelegate.swift */; };
 		BC6A777C28A53F7D00E0AD8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC6A777B28A53F7D00E0AD8D /* Assets.xcassets */; };
 		BC6A777F28A53F7D00E0AD8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC6A777D28A53F7D00E0AD8D /* LaunchScreen.storyboard */; };
-		BC6A779428A53F7E00E0AD8D /* MVP_TestsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A779328A53F7E00E0AD8D /* MVP_TestsUITests.swift */; };
-		BC6A779628A53F7E00E0AD8D /* MVP_TestsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A779528A53F7E00E0AD8D /* MVP_TestsUITestsLaunchTests.swift */; };
 		BC6A77A328A53FC800E0AD8D /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77A228A53FC800E0AD8D /* InitialVC.swift */; };
 		BC6A77A528A54D6500E0AD8D /* InitialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77A428A54D6500E0AD8D /* InitialPresenter.swift */; };
 		BC6A77AD28A5523700E0AD8D /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A77AC28A5523700E0AD8D /* Users.swift */; };
@@ -40,6 +40,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BC2FC42F28D4C61A006A7D71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC6A776728A53F7900E0AD8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC6A776E28A53F7A00E0AD8D;
+			remoteInfo = "MVP+Tests";
+		};
 		BC6A778628A53F7D00E0AD8D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BC6A776728A53F7900E0AD8D /* Project object */;
@@ -61,6 +68,9 @@
 		BC2B80E028D3643E00E837A6 /* CredentialsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsVC.swift; sourceTree = "<group>"; };
 		BC2B80E228D36AAE00E837A6 /* CredentialsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsPresenter.swift; sourceTree = "<group>"; };
 		BC2FC42328D49903006A7D71 /* LogoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoLabel.swift; sourceTree = "<group>"; };
+		BC2FC42528D4BF0F006A7D71 /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
+		BC2FC42B28D4C61A006A7D71 /* MVP Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MVP Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC2FC43428D4D991006A7D71 /* PasswordValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidatorTests.swift; sourceTree = "<group>"; };
 		BC6A776F28A53F7A00E0AD8D /* MVP+Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVP+Tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC6A777228A53F7A00E0AD8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC6A777428A53F7A00E0AD8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,8 +79,6 @@
 		BC6A778028A53F7D00E0AD8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC6A778528A53F7D00E0AD8D /* MVP+TestsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MVP+TestsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC6A778F28A53F7D00E0AD8D /* MVP+TestsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MVP+TestsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC6A779328A53F7E00E0AD8D /* MVP_TestsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVP_TestsUITests.swift; sourceTree = "<group>"; };
-		BC6A779528A53F7E00E0AD8D /* MVP_TestsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVP_TestsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BC6A77A228A53FC800E0AD8D /* InitialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
 		BC6A77A428A54D6500E0AD8D /* InitialPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPresenter.swift; sourceTree = "<group>"; };
 		BC6A77AC28A5523700E0AD8D /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
@@ -94,6 +102,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BC2FC42828D4C61A006A7D71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BC6A776C28A53F7A00E0AD8D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -134,11 +149,19 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		BC2FC42C28D4C61A006A7D71 /* MVP Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BC2FC43428D4D991006A7D71 /* PasswordValidatorTests.swift */,
+			);
+			path = "MVP Unit Tests";
+			sourceTree = "<group>";
+		};
 		BC6A776628A53F7900E0AD8D = {
 			isa = PBXGroup;
 			children = (
 				BC6A777128A53F7A00E0AD8D /* MVP+Tests */,
-				BC6A779228A53F7D00E0AD8D /* MVP+TestsUITests */,
+				BC2FC42C28D4C61A006A7D71 /* MVP Unit Tests */,
 				BC6A777028A53F7A00E0AD8D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -149,6 +172,7 @@
 				BC6A776F28A53F7A00E0AD8D /* MVP+Tests.app */,
 				BC6A778528A53F7D00E0AD8D /* MVP+TestsTests.xctest */,
 				BC6A778F28A53F7D00E0AD8D /* MVP+TestsUITests.xctest */,
+				BC2FC42B28D4C61A006A7D71 /* MVP Unit Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,15 +195,6 @@
 				BC6A778028A53F7D00E0AD8D /* Info.plist */,
 			);
 			path = "MVP+Tests";
-			sourceTree = "<group>";
-		};
-		BC6A779228A53F7D00E0AD8D /* MVP+TestsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				BC6A779328A53F7E00E0AD8D /* MVP_TestsUITests.swift */,
-				BC6A779528A53F7E00E0AD8D /* MVP_TestsUITestsLaunchTests.swift */,
-			);
-			path = "MVP+TestsUITests";
 			sourceTree = "<group>";
 		};
 		BC6A77A728A54D7C00E0AD8D /* Screens */ = {
@@ -263,6 +278,7 @@
 			children = (
 				BC6A77B928A7DC0200E0AD8D /* NetworkManager.swift */,
 				BC73643028B64CB900F6BFF3 /* CoreDataManager.swift */,
+				BC2FC42528D4BF0F006A7D71 /* PasswordValidator.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -313,6 +329,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BC2FC42A28D4C61A006A7D71 /* MVP Unit Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC2FC43128D4C61A006A7D71 /* Build configuration list for PBXNativeTarget "MVP Unit Tests" */;
+			buildPhases = (
+				BC2FC42728D4C61A006A7D71 /* Sources */,
+				BC2FC42828D4C61A006A7D71 /* Frameworks */,
+				BC2FC42928D4C61A006A7D71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BC2FC43028D4C61A006A7D71 /* PBXTargetDependency */,
+			);
+			name = "MVP Unit Tests";
+			productName = "MVP Unit Tests";
+			productReference = BC2FC42B28D4C61A006A7D71 /* MVP Unit Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		BC6A776E28A53F7A00E0AD8D /* MVP+Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC6A779928A53F7E00E0AD8D /* Build configuration list for PBXNativeTarget "MVP+Tests" */;
@@ -373,9 +407,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					BC2FC42A28D4C61A006A7D71 = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = BC6A776E28A53F7A00E0AD8D;
+					};
 					BC6A776E28A53F7A00E0AD8D = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -405,11 +443,19 @@
 				BC6A776E28A53F7A00E0AD8D /* MVP+Tests */,
 				BC6A778428A53F7D00E0AD8D /* MVP+TestsTests */,
 				BC6A778E28A53F7D00E0AD8D /* MVP+TestsUITests */,
+				BC2FC42A28D4C61A006A7D71 /* MVP Unit Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BC2FC42928D4C61A006A7D71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BC6A776D28A53F7A00E0AD8D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -436,6 +482,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BC2FC42728D4C61A006A7D71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC2FC43528D4D991006A7D71 /* PasswordValidatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BC6A776B28A53F7A00E0AD8D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -447,6 +501,7 @@
 				BC25E88128BACF8700F5107D /* CustomTextField.swift in Sources */,
 				BC73640928B5166E00F6BFF3 /* UIViewController+Ext.swift in Sources */,
 				BC6A777328A53F7A00E0AD8D /* AppDelegate.swift in Sources */,
+				BC2FC42628D4BF0F006A7D71 /* PasswordValidator.swift in Sources */,
 				BC2FC42428D49903006A7D71 /* LogoLabel.swift in Sources */,
 				BC73640328B50AB000F6BFF3 /* AlertVC.swift in Sources */,
 				BC87A0DB28B6580F00829E6F /* UserModel.xcdatamodeld in Sources */,
@@ -480,14 +535,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC6A779628A53F7E00E0AD8D /* MVP_TestsUITestsLaunchTests.swift in Sources */,
-				BC6A779428A53F7E00E0AD8D /* MVP_TestsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BC2FC43028D4C61A006A7D71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC6A776E28A53F7A00E0AD8D /* MVP+Tests */;
+			targetProxy = BC2FC42F28D4C61A006A7D71 /* PBXContainerItemProxy */;
+		};
 		BC6A778728A53F7D00E0AD8D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BC6A776E28A53F7A00E0AD8D /* MVP+Tests */;
@@ -512,6 +570,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BC2FC43228D4C61A006A7D71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K33FXWL25N;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anatolii.ostapenko.MVP-Unit-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVP+Tests.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MVP+Tests";
+			};
+			name = Debug;
+		};
+		BC2FC43328D4C61A006A7D71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K33FXWL25N;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anatolii.ostapenko.MVP-Unit-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVP+Tests.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MVP+Tests";
+			};
+			name = Release;
+		};
 		BC6A779728A53F7E00E0AD8D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -759,6 +863,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BC2FC43128D4C61A006A7D71 /* Build configuration list for PBXNativeTarget "MVP Unit Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC2FC43228D4C61A006A7D71 /* Debug */,
+				BC2FC43328D4C61A006A7D71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BC6A776A28A53F7900E0AD8D /* Build configuration list for PBXProject "MVP+Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

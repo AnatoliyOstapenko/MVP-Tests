@@ -30,22 +30,13 @@
       codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BC6A778428A53F7D00E0AD8D"
-               BuildableName = "MVP+TestsTests.xctest"
-               BlueprintName = "MVP+TestsTests"
-               ReferencedContainer = "container:MVP+Tests.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BC6A778E28A53F7D00E0AD8D"
-               BuildableName = "MVP+TestsUITests.xctest"
-               BlueprintName = "MVP+TestsUITests"
+               BlueprintIdentifier = "BC2FC42A28D4C61A006A7D71"
+               BuildableName = "MVP Unit Tests.xctest"
+               BlueprintName = "MVP Unit Tests"
                ReferencedContainer = "container:MVP+Tests.xcodeproj">
             </BuildableReference>
          </TestableReference>

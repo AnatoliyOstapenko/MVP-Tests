@@ -33,7 +33,7 @@ extension UIView {
         view.addSubview(stackView)
         stackView.distribution = .fill
         stackView.axis = .horizontal
-        stackView.spacing = 5
+        stackView.spacing = 10
         stackView.addArrangedSubview(label)
         stackView.addArrangedSubview(rightContainer)
         stackView.layer.cornerRadius = 10
