@@ -16,13 +16,13 @@ protocol MapScreenPresenterProtocol: AnyObject {
     var view: MapScreenViewProtocol? { get set }
     var user: Users { get set }
     init (view: MapScreenViewProtocol, user: Users)
-    func getCoordinate()
-    
+    func getCoordinate()    
 }
 
 class MapScreenPresenter: MapScreenPresenterProtocol {
     weak var view: MapScreenViewProtocol?
     var user: Users
+    
     required init(view: MapScreenViewProtocol, user: Users) {
         self.view = view
         self.user = user

@@ -11,29 +11,43 @@ import XCTest
 final class PasswordValidatorTests: XCTestCase {
     
     var sut: PasswordValidatorProtocol!
-
-    override func setUpWithError() throws {
-        sut = PasswordValidator()
-    }
-
-    override func tearDownWithError() throws {
-        sut = nil
-    }
+    
+    override func setUpWithError() throws { sut = PasswordValidator() }
+    override func tearDownWithError() throws { sut = nil }
 
     func test_validatetextFields() {
         // Arrange
-        var loginTextField = UITextField()
-        var passwordTextField = UITextField()
-        var login = "Foo"
-        var password = "123"
-        var result: Bool?
+        let loginTextField = UITextField()
+        let passwordTextField = UITextField()
+        loginTextField.text = "Foo"
+        passwordTextField.text = "123"
+
         // Act
-        loginTextField.text = login
-        passwordTextField.text = password
-        result = sut.validatetextFields(loginTextField: loginTextField, passwordTextField: passwordTextField)
+        let result = sut.validatetextFields(loginTextField: loginTextField, passwordTextField: passwordTextField)
         // Assert
-        //password is correct
         XCTAssertEqual(result, true)
+    }
+    
+    func test_asyncValidateTextFields() {
+        // Arrange
+        let loginTextField = UITextField()
+        let passwordTextField = UITextField()
+        loginTextField.text = "Foo"
+        passwordTextField.text = "123"
+        var result: Bool?
+        let expectation = expectation(description: #function)
+        
+        // Act
+        sut.asyncValidateTextFields(loginTextField: loginTextField, passwordTextField: passwordTextField) { isValid in
+            result = isValid
+            expectation.fulfill()
+        }
+        // Assert
+        waitForExpectations(timeout: 2) { error in
+            guard error == nil else { return }
+            XCTAssertEqual(result, true)
+        }
+        
     }
 
 }

@@ -10,6 +10,7 @@ import UIKit
 
 protocol PasswordValidatorProtocol {
     func validatetextFields(loginTextField: UITextField, passwordTextField: UITextField) -> Bool
+    func asyncValidateTextFields(loginTextField: UITextField, passwordTextField: UITextField, complition: @escaping(Bool) -> Void)
 }
 
 class PasswordValidator: PasswordValidatorProtocol {
@@ -18,6 +19,15 @@ class PasswordValidator: PasswordValidatorProtocol {
         return loginTextField.hasText &&
                passwordTextField.hasText &&
                passwordTextField.text == "123"
+    }
+    
+    func asyncValidateTextFields(loginTextField: UITextField, passwordTextField: UITextField, complition: @escaping(Bool) -> Void) {
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1.5, execute: {
+           
+                let result = loginTextField.hasText && passwordTextField.hasText && passwordTextField.text == "123"
+                complition(result)
+            
+        })
     }
     
     

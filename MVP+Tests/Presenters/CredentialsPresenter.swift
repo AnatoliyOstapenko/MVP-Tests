@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 
 protocol CredentialViewProtocol: AnyObject {}
+
 protocol CredentialPresenterProtocol: AnyObject {
-    var view: CredentialViewProtocol? {get set}
+    var view: CredentialViewProtocol? { get set }
     init(view: CredentialViewProtocol, validator: PasswordValidatorProtocol)
     func userVarification(login: UITextField, password: UITextField) -> Bool
 }
@@ -27,6 +28,5 @@ class CredentialsPresenter: CredentialPresenterProtocol {
     func userVarification(login: UITextField, password: UITextField) -> Bool {
         validator.validatetextFields(loginTextField: login, passwordTextField: password)
     }
-    
     
 }

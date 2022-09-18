@@ -13,11 +13,9 @@ class CredentialsVC: UIViewController {
     private let loginTextField = CustomTextField()
     private let passwordTextField = CustomTextField()
     
-    var validator = PasswordValidator()
-    
     var presenter: CredentialPresenterProtocol?
     var coordinator: CoordinatorProtocol?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -56,16 +54,17 @@ extension CredentialsVC: UITextFieldDelegate {
         case loginTextField: passwordTextField.becomeFirstResponder()
         case passwordTextField:
             passwordTextField.resignFirstResponder()
-
+            
             guard let presenter = presenter else { break }
             if presenter.userVarification(login: loginTextField, password: passwordTextField) {
                 coordinator?.goToInitialScreen()
             } else {
                 presentAlert(error: "Login or password incorrect, try again")
             }
+            
         default: break
         }
         return true
     }
-
+    
 }
