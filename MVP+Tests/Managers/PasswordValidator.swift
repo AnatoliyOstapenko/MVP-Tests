@@ -23,12 +23,20 @@ class PasswordValidator: PasswordValidatorProtocol {
     
     func asyncValidateTextFields(loginTextField: UITextField, passwordTextField: UITextField, complition: @escaping(Bool) -> Void) {
         DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1.5, execute: {
-           
+            DispatchQueue.main.async {
                 let result = loginTextField.hasText && passwordTextField.hasText && passwordTextField.text == "123"
                 complition(result)
-            
+            }   
         })
     }
     
     
+}
+
+extension FloatingPoint {
+    var isInteger: Bool {rounded() == self}
+}
+
+extension Sequence where Element == Int {
+    var sum: Int { reduce(0,+) }
 }

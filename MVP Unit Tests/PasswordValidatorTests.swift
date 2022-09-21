@@ -43,11 +43,23 @@ final class PasswordValidatorTests: XCTestCase {
             expectation.fulfill()
         }
         // Assert
-        waitForExpectations(timeout: 2) { error in
+        waitForExpectations(timeout: 6) { error in
             guard error == nil else { return }
             XCTAssertEqual(result, true)
         }
-        
+    }
+    
+    func test_isInteger() {
+        // Arrange
+        let num: Float = 12.0000000
+        // Act
+        let result = num.isInteger
+        // Assert
+        XCTAssertEqual(result, true)
+    }
+    
+    func test_fake() {
+        let odds = stride(from: 1, to: 9, by: 2)
     }
 
 }

@@ -24,9 +24,10 @@ protocol InitialViewPresenterProtocol: AnyObject {
 class InitialPresenter: InitialViewPresenterProtocol {
     
     weak var view: InitialViewProtocol?
-    let manager: NetworkManagerProtocol
-    let database: CoreDataManagerProtocol
+    private let manager: NetworkManagerProtocol
+    private let database: CoreDataManagerProtocol
     var databaseUsers: [Users] = []
+    var users: [Users] = []
     
     required init(view: InitialViewProtocol, manager: NetworkManagerProtocol, database: CoreDataManagerProtocol) {
         self.view = view
@@ -44,6 +45,8 @@ class InitialPresenter: InitialViewPresenterProtocol {
             case .success(let users):
                 self.saveNewUsers(databaseUsers: self.databaseUsers, gotUsers: users)
                 self.getUsersDatabase()
+                self.databaseUsers.append(contentsOf: users)
+                self.users.append(contentsOf: users)
             case .failure(let error): print(error.localizedDescription)
             }
         }

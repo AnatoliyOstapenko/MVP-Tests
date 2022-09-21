@@ -13,6 +13,9 @@
 		BC2FC42428D49903006A7D71 /* LogoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FC42328D49903006A7D71 /* LogoLabel.swift */; };
 		BC2FC42628D4BF0F006A7D71 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FC42528D4BF0F006A7D71 /* PasswordValidator.swift */; };
 		BC2FC43528D4D991006A7D71 /* PasswordValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FC43428D4D991006A7D71 /* PasswordValidatorTests.swift */; };
+		BC2FC43728D77DC5006A7D71 /* CredentialsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FC43628D77DC5006A7D71 /* CredentialsPresenterTests.swift */; };
+		BC2FC43928D77FAA006A7D71 /* InitialPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FC43828D77FAA006A7D71 /* InitialPresenterTests.swift */; };
+		BC2FC43B28D87807006A7D71 /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FC43A28D87807006A7D71 /* NetworkManagerMock.swift */; };
 		BC6A777328A53F7A00E0AD8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A777228A53F7A00E0AD8D /* AppDelegate.swift */; };
 		BC6A777528A53F7A00E0AD8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A777428A53F7A00E0AD8D /* SceneDelegate.swift */; };
 		BC6A777C28A53F7D00E0AD8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC6A777B28A53F7D00E0AD8D /* Assets.xcassets */; };
@@ -71,6 +74,9 @@
 		BC2FC42528D4BF0F006A7D71 /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
 		BC2FC42B28D4C61A006A7D71 /* MVP Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MVP Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC2FC43428D4D991006A7D71 /* PasswordValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidatorTests.swift; sourceTree = "<group>"; };
+		BC2FC43628D77DC5006A7D71 /* CredentialsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsPresenterTests.swift; sourceTree = "<group>"; };
+		BC2FC43828D77FAA006A7D71 /* InitialPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPresenterTests.swift; sourceTree = "<group>"; };
+		BC2FC43A28D87807006A7D71 /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
 		BC6A776F28A53F7A00E0AD8D /* MVP+Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVP+Tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC6A777228A53F7A00E0AD8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC6A777428A53F7A00E0AD8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				BC2FC43428D4D991006A7D71 /* PasswordValidatorTests.swift */,
+				BC2FC43628D77DC5006A7D71 /* CredentialsPresenterTests.swift */,
+				BC2FC43828D77FAA006A7D71 /* InitialPresenterTests.swift */,
+				BC2FC43A28D87807006A7D71 /* NetworkManagerMock.swift */,
 			);
 			path = "MVP Unit Tests";
 			sourceTree = "<group>";
@@ -487,6 +496,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC2FC43528D4D991006A7D71 /* PasswordValidatorTests.swift in Sources */,
+				BC2FC43928D77FAA006A7D71 /* InitialPresenterTests.swift in Sources */,
+				BC2FC43B28D87807006A7D71 /* NetworkManagerMock.swift in Sources */,
+				BC2FC43728D77DC5006A7D71 /* CredentialsPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
