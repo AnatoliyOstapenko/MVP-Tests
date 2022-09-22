@@ -47,7 +47,6 @@ final class InitialPresenterTests: XCTestCase {
         // Act
         let filteredUsers = newUsers.filter { !oldUsers.contains($0) }
         oldUsers.append(contentsOf: filteredUsers)
-        
         if presenter.users.isEmpty {
             presenter.users = newUsers
         } else {
@@ -56,6 +55,7 @@ final class InitialPresenterTests: XCTestCase {
 
         }
         // Assert
-        XCTAssertEqual(oldUsers, presenter.users)
+        XCTAssertEqual(oldUsers.sorted(by: { $0.name > $1.name }), presenter.users.sorted(by: { $0.name > $1.name }))
+
     }
 }

@@ -31,18 +31,5 @@ extension Users: Equatable {
     }
 }
 
-extension Users: Comparable {
-    static func < (lhs: Users, rhs: Users) -> Bool {
-        lhs.name < rhs.name &&
-        lhs.username < rhs.username
-    }
-    
-    static func > (lhs: Users, rhs: Users) -> Bool {
-        lhs.name > rhs.name &&
-        lhs.username > rhs.username
-    }
-    
-
-}
 
 
