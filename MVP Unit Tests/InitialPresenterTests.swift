@@ -11,51 +11,86 @@ import XCTest
 final class InitialPresenterTests: XCTestCase {
     
     var view: InitialViewProtocol!
-    var manager: NetworkManagerMock!
-    var database: CoreDataManagerProtocol!
+    var managerMock: NetworkManagerMock!
+    var databaseMock: CoreDataManagerMock!
     var presenter: InitialPresenter!
     
     override func setUpWithError() throws {
         view = InitialVC()
-        manager = NetworkManagerMock()
-        database = CoreDataManager()
-        presenter = InitialPresenter(view: view, manager: manager, database: database)
+        managerMock = NetworkManagerMock()
+        databaseMock = CoreDataManagerMock()
+        presenter = InitialPresenter(view: view, manager: managerMock, database: databaseMock)
     }
     
     override func tearDownWithError() throws {
         view = nil
-        manager = nil
-        database = nil
+        managerMock = nil
+        databaseMock = nil
         presenter = nil
     }
     
     func test_getUsersNetworking() throws {
         // Arrange
-        var users: [Users] = [Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
-        manager.stubedResult = .success(users)
+        let users: [Users] = [Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
+        managerMock.stubedResult = .success(users)
         // Act
-        presenter.getUsersNetworking()
+        presenter.getUsersNetworking() // presenter is already assembled with the managerMock
         // Assert
-        XCTAssertEqual(users, presenter.users)
+        XCTAssertEqual(users, presenter.databaseUsers)
     }
     
-    func test_saveNewUsers() throws {
+    func test_getUsersNetworkingFails() throws {
         // Arrange
-        var oldUsers: [Users] = [Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
-        let newUsers: [Users] = [Users(name: "Baz", username: "Bar", address: Address(geo: Geo(lat: "222", lng: "333"))), Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
+        if let error = CustomError(rawValue: "JSON Parsing fails, chek out APIService") {
+            managerMock.stubedResult = .failure(error)
+            // Act
+            presenter.getUsersNetworking()
+            // Assert
+            XCTAssertEqual(error, presenter.error)
+        } else {
+            XCTFail()
+        }
+    }
+    
+    func test_saveNewUsersWhenDatabaseUsersIsNotEmpty() throws {
+        // Arrange
+        let databaseUsers: [Users] = [Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
+        let gotUsers: [Users] = [Users(name: "Baz", username: "Bar", address: Address(geo: Geo(lat: "222", lng: "333"))), Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
+        var resultArray: [Users] = databaseUsers
 
         // Act
-        let filteredUsers = newUsers.filter { !oldUsers.contains($0) }
-        oldUsers.append(contentsOf: filteredUsers)
-        if presenter.users.isEmpty {
-            presenter.users = newUsers
+        let filteredUsers = gotUsers.filter { !databaseUsers.contains($0) }
+        resultArray.append(contentsOf: filteredUsers)
+        
+        managerMock.stubedResult = .success(databaseUsers)
+        presenter.getUsersNetworking()
+        if !presenter.databaseUsers.isEmpty {
+            presenter.saveNewUsers(databaseUsers: databaseUsers, gotUsers: gotUsers)
         } else {
-            presenter.saveNewUsers(databaseUsers: oldUsers, gotUsers: newUsers)
-            presenter.getUsersDatabase()
-
+            XCTFail()
         }
-        // Assert
-        XCTAssertEqual(oldUsers.sorted(by: { $0.name > $1.name }), presenter.users.sorted(by: { $0.name > $1.name }))
 
+        // Assert
+        XCTAssertEqual(resultArray.sorted(by: { $0.name > $1.name }), presenter.databaseUsers.sorted(by: { $0.name > $1.name }))
     }
+    
+    func test_getUsersDatabase() throws {
+        // Arrange
+        let databaseUsers: [Users] = [Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
+        databaseMock._fetchUsersFromDB = .success(databaseUsers)
+        // Act
+        presenter.getUsersDatabase()
+        // Assert
+        XCTAssertEqual(databaseUsers, presenter.databaseUsers)
+    }
+    
+    func test_deleteAllUsers() throws {
+        // Arrange
+        // Act
+        // Assert
+    }
+    
+
+    
+
 }

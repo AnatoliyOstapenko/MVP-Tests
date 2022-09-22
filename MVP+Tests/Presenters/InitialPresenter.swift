@@ -27,7 +27,7 @@ class InitialPresenter: InitialViewPresenterProtocol {
     private let manager: NetworkManagerProtocol
     private let database: CoreDataManagerProtocol
     var databaseUsers: [Users] = []
-    var users: [Users] = []
+    var error: CustomError?
     
     required init(view: InitialViewProtocol, manager: NetworkManagerProtocol, database: CoreDataManagerProtocol) {
         self.view = view
@@ -46,8 +46,7 @@ class InitialPresenter: InitialViewPresenterProtocol {
                 self.saveNewUsers(databaseUsers: self.databaseUsers, gotUsers: users)
                 self.getUsersDatabase()
                 self.databaseUsers.append(contentsOf: users)
-                self.users.append(contentsOf: users)
-            case .failure(let error): print(error.localizedDescription)
+            case .failure(let error): self.error = error
             }
         }
     }
@@ -58,6 +57,7 @@ class InitialPresenter: InitialViewPresenterProtocol {
             return
         }
         let newUsers = gotUsers.filter { !databaseUsers.contains($0)}
+        self.databaseUsers.append(contentsOf: newUsers) // TODO: - Delete that if app crashes
         database.saveUsersToDB(users: newUsers)
     }
     
@@ -68,14 +68,9 @@ class InitialPresenter: InitialViewPresenterProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let users):
-                let convertUsersFromDBToModel: [Users] = users.compactMap {
-                    let user: Users = Users(name: $0.user ?? "", username: $0.username ?? "", address: Address.init(geo: Geo.init(lat: $0.latitude.doubleToString, lng: $0.longitude.doubleToString)))
-                    return user
-                }
-                self.databaseUsers = convertUsersFromDBToModel
-                print("Total user from DB \(convertUsersFromDBToModel.count)")
+                self.databaseUsers = users
                 DispatchQueue.main.async {
-                    self.view?.setUsers(users: convertUsersFromDBToModel)
+                    self.view?.setUsers(users: users)
                 }
             case .failure(let error): print(error.rawValue)
             }

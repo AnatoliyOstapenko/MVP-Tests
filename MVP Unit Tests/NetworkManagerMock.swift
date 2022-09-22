@@ -10,9 +10,9 @@ import UIKit
 
 class NetworkManagerMock: NetworkManagerProtocol {
     
-    var stubedResult: Result<[MVP_Tests.Users], Error>?
+    var stubedResult: Result<[MVP_Tests.Users], CustomError>?
     
-    func getUsers(completion: @escaping (Result<[MVP_Tests.Users], Error>) -> Void) {
+    func getUsers(completion: @escaping (Result<[MVP_Tests.Users], CustomError>) -> Void) {
         if let result = stubedResult { completion(result) }
     }
 }

@@ -8,12 +8,12 @@
 import Foundation
 
 protocol NetworkManagerProtocol {
-    func getUsers(completion: @escaping(Result<[Users],Error>) -> Void)
+    func getUsers(completion: @escaping(Result<[Users], CustomError>) -> Void)
 }
 
 class NetworkManager: NetworkManagerProtocol {
     
-    func getUsers(completion: @escaping(Result<[Users],Error>) -> Void) {
+    func getUsers(completion: @escaping(Result<[Users], CustomError>) -> Void) {
         guard let url = Constants.url else { return }
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data, error == nil else { return }
@@ -21,7 +21,7 @@ class NetworkManager: NetworkManagerProtocol {
             do {
                 let result = try JSONDecoder().decode([Users].self, from: data)
                 completion(.success(result))
-            } catch { completion(.failure(error))}
+            } catch { completion(.failure(CustomError.failParsing))}
         }
         task.resume()
     }

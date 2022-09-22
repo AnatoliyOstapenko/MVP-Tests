@@ -11,7 +11,7 @@ import CoreData
 protocol CoreDataManagerProtocol {
     func saveUsersToDB(users: [Users])
     func saveUserToDB(user: Users)
-    func fetchUsersFromDB(completion: @escaping(Result<[UserModel], CustomError>) -> Void)
+    func fetchUsersFromDB(completion: @escaping(Result<[Users], CustomError>) -> Void)
     func deleteUser(user: Users)
     func deleteAllUsers()
 }
@@ -38,15 +38,21 @@ class CoreDataManager: CoreDataManagerProtocol {
         }
         do { try context.save() }
         catch { print("Failed to save users to Database") }
-
     }
     
-    func fetchUsersFromDB(completion: @escaping(Result<[UserModel], CustomError>) -> Void) {
+    func fetchUsersFromDB(completion: @escaping(Result<[Users], CustomError>) -> Void) {
         let context = persistentContainer.viewContext
 
         do {
             let users = try context.fetch(NSFetchRequest<UserModel>(entityName: Constants.entityName))
-            completion(.success(users))
+            let convertedUsers: [Users] = users.compactMap {
+                let user: Users = Users(name: $0.user ?? "",
+                                        username: $0.username ?? "",
+                                        address: Address(geo: Geo(lat: $0.latitude.doubleToString,
+                                                                  lng: $0.longitude.doubleToString)))
+                return user
+            }
+            completion(.success(convertedUsers))
         } catch {  completion(.failure(.failFetchFromDatabase)) }
     }
     
