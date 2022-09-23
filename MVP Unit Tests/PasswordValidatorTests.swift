@@ -43,7 +43,7 @@ final class PasswordValidatorTests: XCTestCase {
             expectation.fulfill()
         }
         // Assert
-        waitForExpectations(timeout: 6) { error in
+        waitForExpectations(timeout: 20) { error in
             guard error == nil else { return }
             XCTAssertEqual(result, true)
         }

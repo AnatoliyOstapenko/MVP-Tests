@@ -16,7 +16,7 @@ protocol InitialViewPresenterProtocol: AnyObject {
     init (view: InitialViewProtocol, manager: NetworkManagerProtocol, database: CoreDataManagerProtocol)
     func getUsersNetworking()
     func getUsersDatabase()
-    func deleteAllUsers()
+    func deleteAllUsers(users: [Users])
     func saveNewUser(user: Users)
     func deleteUser(user: Users)
 }
@@ -77,9 +77,23 @@ class InitialPresenter: InitialViewPresenterProtocol {
         }
     }
     
-    func deleteAllUsers() { database.deleteAllUsers() }
-    func saveNewUser(user: Users) { database.saveUserToDB(user: user) }
-    func deleteUser(user: Users) {database.deleteUser(user: user)}
+    func deleteAllUsers(users: [Users]) {
+//        let remainingUsers = users.filter{!databaseUsers.contains($0)}
+//        databaseUsers = remainingUsers
+        database.deleteAllUsers(users: users)
+    }
+    
+    func saveNewUser(user: Users) {
+//        databaseUsers.append(user)
+        database.saveUserToDB(user: user)
+    }
+    
+    func deleteUser(user: Users) {
+        let remainingUsers = databaseUsers.filter {!$0.name.contains(user.name)}
+        databaseUsers = remainingUsers
+        database.deleteUser(user: user)
+        
+    }
 }
 
 

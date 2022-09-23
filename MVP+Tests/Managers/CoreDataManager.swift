@@ -13,7 +13,7 @@ protocol CoreDataManagerProtocol {
     func saveUserToDB(user: Users)
     func fetchUsersFromDB(completion: @escaping(Result<[Users], CustomError>) -> Void)
     func deleteUser(user: Users)
-    func deleteAllUsers()
+    func deleteAllUsers(users: [Users])
 }
 
 class CoreDataManager: CoreDataManagerProtocol {
@@ -45,6 +45,7 @@ class CoreDataManager: CoreDataManagerProtocol {
 
         do {
             let users = try context.fetch(NSFetchRequest<UserModel>(entityName: Constants.entityName))
+            
             let convertedUsers: [Users] = users.compactMap {
                 let user: Users = Users(name: $0.user ?? "",
                                         username: $0.username ?? "",
@@ -68,27 +69,33 @@ class CoreDataManager: CoreDataManagerProtocol {
         catch { print("Failed to save user to Database") }
     }
     
-    func deleteAllUsers() {
+    func deleteAllUsers(users: [Users]) {
         let context = persistentContainer.viewContext
+
         do {
-            let users = try context.fetch(NSFetchRequest<UserModel>(entityName: Constants.entityName))
-            for user in users {
-                context.delete(user)
+            let usersDB = try context.fetch(NSFetchRequest<UserModel>(entityName: Constants.entityName))
+            usersDB.forEach { one in
+                users.forEach { two in
+                    if one.user == two.name {
+                        context.delete(one)
+                    }
+                }
             }
             try context.save()
-        } catch { print("oops")}
+        } catch { print("Delete all users fails") }
     }
     
     func deleteUser(user: Users) {
         let context = persistentContainer.viewContext
-        var convertedUser: UserModel {
-            let userDB = NSEntityDescription.insertNewObject(forEntityName: Constants.entityName, into: context) as! UserModel
-            userDB.user = user.name
-            userDB.username = user.username
-            userDB.latitude = user.address.geo.lat.stringToDouble
-            userDB.longitude = user.address.geo.lng.stringToDouble
-            return userDB
-        }
-        context.delete(convertedUser)
+        do {
+            let usersDB = try context.fetch(NSFetchRequest<UserModel>(entityName: Constants.entityName))
+
+            for userOne in usersDB {
+                if user.name == userOne.user {
+                    context.delete(userOne)
+                }
+            }
+            try context.save()
+        } catch { print("Delete one user fails")}
     }
 }

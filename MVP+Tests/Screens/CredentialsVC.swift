@@ -24,8 +24,8 @@ class CredentialsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loginTextField.text = ""
-        passwordTextField.text = ""
+        loginTextField.text = "Login"
+        passwordTextField.text = "123"
     }
     
     private func configureUI() {

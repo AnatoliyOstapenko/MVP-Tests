@@ -85,10 +85,31 @@ final class InitialPresenterTests: XCTestCase {
     }
     
     func test_deleteAllUsers() throws {
-        // Arrange
-        // Act
-        // Assert
+        let databaseUsers: [Users] = [Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
+        presenter.deleteAllUsers(users: databaseUsers)
     }
+    
+    func test_saveNewUser() throws {
+        // Arrange
+        let user = Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))
+        var users: [Users] = []
+        users.append(user)
+        // Act
+        presenter.saveNewUser(user: user)
+        // Assert
+        XCTAssertEqual(users, presenter.databaseUsers)
+    }
+    
+    func test_deleteUser() throws {
+        // Arrange
+        let user = Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))
+        var users: [Users] = []
+        // Act
+        presenter.deleteUser(user: user)
+        // Assert
+        XCTAssertEqual(users, presenter.databaseUsers)
+    }
+    
     
 
     

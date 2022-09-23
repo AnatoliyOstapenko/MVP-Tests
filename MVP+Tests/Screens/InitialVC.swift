@@ -21,7 +21,7 @@ class InitialVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        presenter?.getUsersNetworking()
+        presenter?.getUsersNetworking() 
     }
     
     private func configure() {
@@ -45,8 +45,9 @@ class InitialVC: UIViewController {
         let alert = UIAlertController(title: "Delete all users", message: "Are you sure if you want to delete all users from the list", preferredStyle: .alert)
         let deleteButton = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
             guard let self = self else { return }
-            self.presenter?.deleteAllUsers()
+            self.presenter?.deleteAllUsers(users: self.users)
             self.presenter?.getUsersDatabase()
+            self.initialTableView.reloadData()
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addAction(deleteButton)
