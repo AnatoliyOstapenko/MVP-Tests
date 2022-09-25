@@ -85,33 +85,40 @@ final class InitialPresenterTests: XCTestCase {
     }
     
     func test_deleteAllUsers() throws {
-        let databaseUsers: [Users] = [Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
+        // Arrange
+        let databaseUsers: [Users] = [Users(name: "Baz", username: "Bar", address: Address(geo: Geo(lat: "222", lng: "333"))), Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
+        // Act
+        managerMock.stubedResult = .success(databaseUsers)
+        presenter.getUsersNetworking()
         presenter.deleteAllUsers(users: databaseUsers)
+        // Assert
+        XCTAssertEqual([], presenter.databaseUsers)
     }
     
     func test_saveNewUser() throws {
         // Arrange
-        let user = Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))
-        var users: [Users] = []
-        users.append(user)
+        let databaseUsers: [Users] = [Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
+        let saveNewUser: Users = Users(name: "Baz", username: "Bar", address: Address(geo: Geo(lat: "222", lng: "333")))
+        var result = databaseUsers
+        result.append(saveNewUser)
         // Act
-        presenter.saveNewUser(user: user)
+        managerMock.stubedResult = .success(databaseUsers)
+        presenter.getUsersNetworking()
+        presenter.saveNewUser(user: saveNewUser)
         // Assert
-        XCTAssertEqual(users, presenter.databaseUsers)
+        XCTAssertEqual(result, presenter.databaseUsers)
     }
     
     func test_deleteUser() throws {
         // Arrange
-        let user = Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))
-        var users: [Users] = []
+        let users: [Users] = [Users(name: "Baz", username: "Bar", address: Address(geo: Geo(lat: "222", lng: "333"))), Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
+        let result: [Users] = [Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
+        managerMock.stubedResult = .success(users)
+        presenter.getUsersNetworking()
         // Act
-        presenter.deleteUser(user: user)
+        presenter.deleteUser(user: users.first!)
+        
         // Assert
-        XCTAssertEqual(users, presenter.databaseUsers)
+        XCTAssertEqual(result, presenter.databaseUsers)
     }
-    
-    
-
-    
-
 }

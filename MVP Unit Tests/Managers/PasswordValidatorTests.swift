@@ -28,27 +28,6 @@ final class PasswordValidatorTests: XCTestCase {
         XCTAssertEqual(result, true)
     }
     
-    func test_asyncValidateTextFields() {
-        // Arrange
-        let loginTextField = UITextField()
-        let passwordTextField = UITextField()
-        loginTextField.text = "Foo"
-        passwordTextField.text = "123"
-        var result: Bool?
-        let expectation = expectation(description: #function)
-        
-        // Act
-        sut.asyncValidateTextFields(loginTextField: loginTextField, passwordTextField: passwordTextField) { isValid in
-            result = isValid
-            expectation.fulfill()
-        }
-        // Assert
-        waitForExpectations(timeout: 20) { error in
-            guard error == nil else { return }
-            XCTAssertEqual(result, true)
-        }
-    }
-    
     func test_isInteger() {
         // Arrange
         let num: Float = 12.0000000

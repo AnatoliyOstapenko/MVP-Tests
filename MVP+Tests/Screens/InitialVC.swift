@@ -86,7 +86,7 @@ extension InitialVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: InitialCell.reuseID, for: indexPath) as! InitialCell
-        cell.updateCell(users: users[indexPath.row], number: indexPath.row)
+        cell.updateCell(users: users[indexPath.row])
         return cell
     }
 }

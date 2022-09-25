@@ -39,7 +39,6 @@ final class CredentialsPresenterTests: XCTestCase {
         
         // Assert
         XCTAssertEqual(result, true)
-        
     }
 
     

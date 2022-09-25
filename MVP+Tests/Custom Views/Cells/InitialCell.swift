@@ -32,8 +32,8 @@ class InitialCell: UITableViewCell {
     }
 
     
-    func updateCell(users: Users, number: Int) {
-        nameLabel.text = "\(number + 1): \(users.name)"
+    func updateCell(users: Users) {
+        nameLabel.text = users.name
         usernameLabel.text = users.username
     }
 }
