@@ -12,7 +12,7 @@ protocol NetworkManagerProtocol {
 }
 
 class NetworkManager: NetworkManagerProtocol {
-    
+
     func getUsers(completion: @escaping(Result<[Users], CustomError>) -> Void) {
         guard let url = Constants.url else { return }
         let task = URLSession.shared.dataTask(with: url) { data, _, error in

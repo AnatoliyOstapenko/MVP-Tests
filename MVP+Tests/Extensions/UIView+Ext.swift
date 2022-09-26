@@ -145,6 +145,28 @@ extension UIView {
         ])
     }
     
+    func setCredentialButton(superview: UIView, view: UIView, button: UIButton, stackView: UIStackView) {
+        superview.addSubview(view)
+        view.addSubview(button)
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            view.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: superview.trailingAnchor),
+            view.topAnchor.constraint(equalTo: stackView.bottomAnchor),
+            view.bottomAnchor.constraint(equalTo: superview.bottomAnchor),
+        ])
+        
+        
+        NSLayoutConstraint.activate([
+            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.heightAnchor.constraint(equalToConstant: 75),
+            button.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7)
+        ])
+    }
+    
 
     
 }

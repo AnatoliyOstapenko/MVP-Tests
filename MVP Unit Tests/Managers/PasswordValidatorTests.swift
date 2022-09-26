@@ -37,8 +37,19 @@ final class PasswordValidatorTests: XCTestCase {
         XCTAssertEqual(result, true)
     }
     
-    func test_fake() {
-        let odds = stride(from: 1, to: 9, by: 2)
+    func test_fake1() {
+        let numbers = stride(from: 3, to: 0, by: -1)
+        XCTAssertEqual(numbers.sum, 6)
+    }
+    
+    func test_fake2() {
+        let numbers = [1.1, 1.5, 1.4]
+        XCTAssertEqual(numbers.sum, 4)
     }
 
+}
+
+
+extension Sequence where Element: AdditiveArithmetic {
+    var sum: Element { reduce(.zero, +) }
 }

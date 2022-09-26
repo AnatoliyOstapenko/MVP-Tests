@@ -12,6 +12,8 @@ class CredentialsVC: UIViewController {
     private let credentialsStackView = UIStackView()
     private let loginTextField = CustomTextField()
     private let passwordTextField = CustomTextField()
+    private let buttonContainer = UIView()
+    private let credentialButton = CustomButton(textButton: "OK")
     
     var presenter: CredentialPresenterProtocol?
     var coordinator: CoordinatorProtocol?
@@ -31,6 +33,12 @@ class CredentialsVC: UIViewController {
     private func configureUI() {
         view.backgroundColor = .systemBackground
         credentialsStackView.setCredentialsStackView(view: view, stack: credentialsStackView, login: loginTextField, password: passwordTextField)
+        credentialButton.setCredentialButton(superview: view, view: buttonContainer, button: credentialButton, stackView: credentialsStackView)
+        credentialButton.addTarget(self, action: #selector(credentialButtonTap), for: .touchUpInside)
+    }
+    
+    @objc func credentialButtonTap() {
+        validation(login: loginTextField, password: passwordTextField)
     }
     
     private func configureTextFields() {
@@ -40,7 +48,6 @@ class CredentialsVC: UIViewController {
         passwordTextField.enablesReturnKeyAutomatically = true
         loginTextField.delegate = self
         passwordTextField.delegate = self
-        
     }
 }
 
@@ -54,17 +61,19 @@ extension CredentialsVC: UITextFieldDelegate {
         case loginTextField: passwordTextField.becomeFirstResponder()
         case passwordTextField:
             passwordTextField.resignFirstResponder()
-            
-            guard let presenter = presenter else { break }
-            if presenter.userVarification(login: loginTextField, password: passwordTextField) {
-                coordinator?.goToInitialScreen()
-            } else {
-                presentAlert(error: "Login or password incorrect, try again")
-            }
-            
+            validation(login: loginTextField, password: passwordTextField)
         default: break
         }
         return true
+    }
+    
+    func validation(login: UITextField, password: UITextField) {
+        guard let presenter = presenter else { return }
+        if presenter.userVarification(login: login, password: password) {
+            coordinator?.goToInitialScreen()
+        } else {
+            presentAlert(error: "Login or password incorrect, try again")
+        }
     }
     
 }

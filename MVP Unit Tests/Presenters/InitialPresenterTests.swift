@@ -77,11 +77,23 @@ final class InitialPresenterTests: XCTestCase {
     func test_getUsersDatabase() throws {
         // Arrange
         let databaseUsers: [Users] = [Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
+        
         databaseMock._fetchUsersFromDB = .success(databaseUsers)
         // Act
         presenter.getUsersDatabase()
         // Assert
         XCTAssertEqual(databaseUsers, presenter.databaseUsers)
+
+    }
+    
+    func test_getUsersDatabaseFails() throws {
+        // Arrange
+        let error = CustomError.failFetchFromDatabase
+        databaseMock._fetchUsersFromDB = .failure(error)
+        // Act
+        presenter.getUsersDatabase()
+        // Assert
+        XCTAssertEqual([], presenter.databaseUsers)
     }
     
     func test_deleteAllUsers() throws {
