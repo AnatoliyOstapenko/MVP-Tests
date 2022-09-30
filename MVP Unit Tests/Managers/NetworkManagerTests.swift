@@ -10,69 +10,42 @@ import XCTest
 
 final class NetworkManagerTests: XCTestCase {
     
-
-    var manager: NetworkManager!
+    var sut: NetworkManager!
+    var managerMock: NetworkManagerMock!
+    var view: InitialVC!
 
 
     override func setUpWithError() throws {
-
-        manager = NetworkManager()
-
+        sut = NetworkManager()
+        managerMock = NetworkManagerMock()
+        view = InitialVC()
     }
 
     override func tearDownWithError() throws {
-        manager = nil
-
+        sut = nil
+        managerMock = nil
+        view = nil
     }
     
-    func test_pieceOfOtherShitFromFYouTube() throws {
-        // Arrange
-        let json = """
-{
-    "name": "Leanne Graham",
-    "username": "Bret",
-    "address": {
-      "geo": {
-        "lat": "-37.3159",
-        "lng": "81.1496"
-      }
-    }
-  }
-"""
-        // Act
-        let jsonData = json.data(using: .utf8)!
-        do {
-            let data = try JSONDecoder().decode(Users.self, from: jsonData)
-            // Assert
-            XCTAssertEqual("Leanne Graham", data.name)
-            XCTAssertEqual("81.1496", data.address.geo.lng)
-        } catch { XCTFail() }
-       
-
-        
-        
-    }
     
     func test_getUsers() {
-        var num: [Users] = []
-        DispatchQueue.main.async {
-            self.manager.getUsers { result in
-                switch result {
-                case .success(let success):
-                    num = success
-                case .failure(let failure):
-                    XCTFail()
-                }
+        let users: [Users] = [Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
+        view.setUsers(users: users)
+        let expectation = XCTestExpectation() // create expectation before acync method
+        
+        self.sut.getUsers { result in
+            print("fulfill invoked")
+            expectation.fulfill() // triggered after wait method
+            switch result {
+            case .success(let success):
+                print(success)
+                XCTAssertEqual(self.view.users[0].name, "Bar")
+            case .failure(_):
+                XCTFail()
             }
         }
-        
-        print("num is count: \(num.count) and text: \(num)")
-
-        
-//        XCTAssertEqual(users[0].name, initialVC.users[0].name)
+        print("Before wait")
+        wait(for: [expectation], timeout: 2) // create wait method in the end of block for testing
+        print("After wait")
     }
-    
-    
-
-
 }

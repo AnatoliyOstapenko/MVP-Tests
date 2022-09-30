@@ -11,14 +11,18 @@ import XCTest
 final class InitialVCTests: XCTestCase {
     
     var sut: InitialVC!
+    var tableView: UITableView!
     var managerMock: NetworkManagerMock!
     var databaseMock: CoreDataManagerMock!
-
     var presenter: InitialPresenter!
     
 
     override func setUpWithError() throws {
         sut = InitialVC()
+        tableView = sut.initialTableView
+        tableView.dataSource = sut
+        tableView.delegate = sut
+        tableView.register(InitialCell.self, forCellReuseIdentifier: InitialCell.reuseID)
         managerMock = NetworkManagerMock()
         databaseMock = CoreDataManagerMock()
         presenter = InitialPresenter(view: sut, manager: managerMock, database: databaseMock)
@@ -26,6 +30,7 @@ final class InitialVCTests: XCTestCase {
 
     override func tearDownWithError() throws {
         sut = nil
+        tableView = nil
         managerMock = nil
         databaseMock = nil
         presenter = nil
@@ -36,12 +41,20 @@ final class InitialVCTests: XCTestCase {
         let users: [Users] = [Users(name: "Baz", username: "Bar", address: Address(geo: Geo(lat: "222", lng: "333"))), Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
         // Act
         sut.setUsers(users: users)
-        sut.initialTableView.dataSource = sut
-        sut.initialTableView.reloadData()
+        tableView.reloadData()
         // Assert
-        XCTAssertEqual(sut.users.count, sut.initialTableView.numberOfRows(inSection: 0))
+        XCTAssertEqual(sut.users.count, tableView.numberOfRows(inSection: 0))
     }
     
+    func test_testCellForRowAt() {
+        // Arrange
+        let users: [Users] = [Users(name: "Baz", username: "Bar", address: Address(geo: Geo(lat: "222", lng: "333"))), Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
+        sut.setUsers(users: users)
+        tableView.reloadData()
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
+        
+        XCTAssertTrue(cell is InitialCell)
+    }
 
     
 

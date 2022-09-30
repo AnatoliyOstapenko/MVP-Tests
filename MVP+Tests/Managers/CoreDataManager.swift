@@ -46,14 +46,15 @@ class CoreDataManager: CoreDataManagerProtocol {
         do {
             let users = try context.fetch(NSFetchRequest<UserModel>(entityName: Constants.entityName))
             
-            let convertedUsers: [Users] = users.compactMap {
-                let user: Users = Users(name: $0.user ?? "",
-                                        username: $0.username ?? "",
-                                        address: Address(geo: Geo(lat: $0.latitude.doubleToString,
-                                                                  lng: $0.longitude.doubleToString)))
-                return user
-            }
-            completion(.success(convertedUsers))
+//            let convertedUsers: [Users] = users.compactMap {
+//                let user: Users = Users(name: $0.user ?? "",
+//                                        username: $0.username ?? "",
+//                                        address: Address(geo: Geo(lat: $0.latitude.doubleToString,
+//                                                                  lng: $0.longitude.doubleToString)))
+//                return user
+//            }
+            completion(.success(users.compactMap { Users(name: $0.user ?? "", username: $0.username ?? "", address: Address(geo: Geo(lat: $0.latitude.doubleToString, lng: $0.longitude.doubleToString)))}))
+            
         } catch {  completion(.failure(.failFetchFromDatabase)) }
     }
     

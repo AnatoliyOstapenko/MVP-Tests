@@ -158,7 +158,6 @@ extension UIView {
             view.bottomAnchor.constraint(equalTo: superview.bottomAnchor),
         ])
         
-        
         NSLayoutConstraint.activate([
             button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),

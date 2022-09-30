@@ -97,6 +97,10 @@ extension InitialVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        testableDidSelectRowAt(indexPath: indexPath)
+    }
+    
+    func testableDidSelectRowAt(indexPath: IndexPath) {
         let alert = UIAlertController(title: "Wold you like to delete or see user location", message: nil, preferredStyle: .actionSheet)
         let deleteButton = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
             guard let self = self else { return }

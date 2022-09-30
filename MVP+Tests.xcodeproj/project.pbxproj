@@ -18,8 +18,6 @@
 		BC2FC43928D77FAA006A7D71 /* InitialPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FC43828D77FAA006A7D71 /* InitialPresenterTests.swift */; };
 		BC2FC43B28D87807006A7D71 /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FC43A28D87807006A7D71 /* NetworkManagerMock.swift */; };
 		BC63E96428E0847A00A97DF9 /* InitialVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC63E96328E0847A00A97DF9 /* InitialVCTests.swift */; };
-		BC63E96628E0877F00A97DF9 /* UITableViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC63E96528E0877F00A97DF9 /* UITableViewMock.swift */; };
-		BC63E96828E087E100A97DF9 /* InitialCellMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC63E96728E087E100A97DF9 /* InitialCellMock.swift */; };
 		BC63E96E28E0BAAF00A97DF9 /* InitialCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC63E96D28E0BAAF00A97DF9 /* InitialCellTests.swift */; };
 		BC63E97128E1BDC100A97DF9 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC63E97028E1BDC100A97DF9 /* NetworkManagerTests.swift */; };
 		BC6A777328A53F7A00E0AD8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A777228A53F7A00E0AD8D /* AppDelegate.swift */; };
@@ -85,8 +83,6 @@
 		BC2FC43828D77FAA006A7D71 /* InitialPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPresenterTests.swift; sourceTree = "<group>"; };
 		BC2FC43A28D87807006A7D71 /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
 		BC63E96328E0847A00A97DF9 /* InitialVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialVCTests.swift; sourceTree = "<group>"; };
-		BC63E96528E0877F00A97DF9 /* UITableViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewMock.swift; sourceTree = "<group>"; };
-		BC63E96728E087E100A97DF9 /* InitialCellMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCellMock.swift; sourceTree = "<group>"; };
 		BC63E96D28E0BAAF00A97DF9 /* InitialCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCellTests.swift; sourceTree = "<group>"; };
 		BC63E97028E1BDC100A97DF9 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		BC6A776F28A53F7A00E0AD8D /* MVP+Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVP+Tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,8 +206,6 @@
 			children = (
 				BC2FC43A28D87807006A7D71 /* NetworkManagerMock.swift */,
 				BC05F46428DC9F180034A90E /* CoreDataManagerMock.swift */,
-				BC63E96528E0877F00A97DF9 /* UITableViewMock.swift */,
-				BC63E96728E087E100A97DF9 /* InitialCellMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -554,12 +548,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC63E97128E1BDC100A97DF9 /* NetworkManagerTests.swift in Sources */,
-				BC63E96628E0877F00A97DF9 /* UITableViewMock.swift in Sources */,
 				BC2FC43528D4D991006A7D71 /* PasswordValidatorTests.swift in Sources */,
 				BC05F46528DC9F180034A90E /* CoreDataManagerMock.swift in Sources */,
 				BC63E96E28E0BAAF00A97DF9 /* InitialCellTests.swift in Sources */,
 				BC2FC43928D77FAA006A7D71 /* InitialPresenterTests.swift in Sources */,
-				BC63E96828E087E100A97DF9 /* InitialCellMock.swift in Sources */,
 				BC63E96428E0847A00A97DF9 /* InitialVCTests.swift in Sources */,
 				BC2FC43B28D87807006A7D71 /* NetworkManagerMock.swift in Sources */,
 				BC2FC43728D77DC5006A7D71 /* CredentialsPresenterTests.swift in Sources */,
