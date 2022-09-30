@@ -33,13 +33,9 @@ final class CredentialsPresenterTests: XCTestCase {
         let passwordTF = UITextField()
         loginTF.text = "Bar"
         passwordTF.text = "123"
-        
         // Act
         let result = presenter.userVarification(login: loginTF, password: passwordTF)
-        
         // Assert
         XCTAssertEqual(result, true)
-    }
-
-    
+    }    
 }

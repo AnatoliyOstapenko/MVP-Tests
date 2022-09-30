@@ -36,8 +36,8 @@ class MapScreenVC: UIViewController {
     
     private func checkLocationServices() {
         if CLLocationManager.locationServicesEnabled() {
-            setLocationManager()
             checkLocationAuthorization()
+            setLocationManager()
         } else {} // TODO: - create alert in the future
     }
     

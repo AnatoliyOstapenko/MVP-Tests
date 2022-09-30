@@ -38,14 +38,13 @@ final class NetworkManagerTests: XCTestCase {
             expectation.fulfill() // triggered after wait method
             switch result {
             case .success(let success):
-                print(success)
-                XCTAssertEqual(self.view.users[0].name, "Bar")
+                XCTAssertEqual(self.view.users[0].name, success[0].name)
             case .failure(_):
                 XCTFail()
             }
         }
         print("Before wait")
-        wait(for: [expectation], timeout: 2) // create wait method in the end of block for testing
+        wait(for: [expectation], timeout: 1) // create wait method in the end of block for testing
         print("After wait")
     }
 }
