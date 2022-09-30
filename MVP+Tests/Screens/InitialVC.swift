@@ -21,7 +21,7 @@ class InitialVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        presenter?.getUsersNetworking() 
+        presenter?.getUsersNetworking()
     }
     
     private func configure() {
@@ -33,7 +33,7 @@ class InitialVC: UIViewController {
     private func setBarButtons() {
         let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed(_:)))
         navigationItem.rightBarButtonItem = addBarButton
-        let deleteBarButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteButtonPressed(_:)))
+        let deleteBarButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteButtonPressed))
         let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonPressed(_:)))
         navigationItem.leftBarButtonItems = [cancelBarButton, deleteBarButton]
     }
@@ -41,7 +41,7 @@ class InitialVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc private func deleteButtonPressed(_ sender: UIBarButtonItem) {
+    @objc public func deleteButtonPressed() {
         let alert = UIAlertController(title: "Delete all users", message: "Are you sure if you want to delete all users from the list", preferredStyle: .alert)
         let deleteButton = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
             guard let self = self else { return }
@@ -55,17 +55,17 @@ class InitialVC: UIViewController {
         self.present(alert, animated: true)
     }
     
-    @objc private func addButtonPressed(_ sender: UIBarButtonItem) {
+    @objc public func addButtonPressed(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add a new user", message: "type name and username", preferredStyle: .alert)
         
         alert.addTextField { textField in textField.placeholder = "name" }
         alert.addTextField { textField in textField.placeholder = "username" }
-
+        
         let addButton = UIAlertAction(title: "add", style: .default) { _ in
-        guard let textField = alert.textFields, let name = textField[0].text, let username = textField[1].text, !name.isEmpty, !username.isEmpty else {
-            self.presentAlert(error: "Please type name and username to save")
-            return
-        }
+            guard let textField = alert.textFields, let name = textField[0].text, let username = textField[1].text, !name.isEmpty, !username.isEmpty else {
+                self.presentAlert(error: "Please type name and username to save")
+                return
+            }
             let user = Users(name: name, username: username, address: Address(geo: Geo(lat: "40.7128", lng: "74.0060")))
             self.presenter?.saveNewUser(user: user)
             self.users.append(user)
@@ -97,17 +97,16 @@ extension InitialVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        testableDidSelectRowAt(indexPath: indexPath)
+        didSelectRowAlertMessage(indexPath: indexPath)   
     }
     
-    func testableDidSelectRowAt(indexPath: IndexPath) {
+    func didSelectRowAlertMessage(indexPath: IndexPath, completion: (()->())? = nil) {
         let alert = UIAlertController(title: "Wold you like to delete or see user location", message: nil, preferredStyle: .actionSheet)
         let deleteButton = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
             guard let self = self else { return }
             self.presenter?.deleteUser(user: self.users[indexPath.row])
             self.users.remove(at: indexPath.row)
             self.initialTableView.reloadData()
-            
         }
         let locationButton = UIAlertAction(title: "See location", style: .default) { [weak self] _ in
             guard let self = self else { return }
@@ -120,7 +119,10 @@ extension InitialVC: UITableViewDelegate {
         alert.addAction(cancelButton)
         present(alert, animated: true)
     }
+    
 }
+
+
 
 extension InitialVC: InitialViewProtocol {
     func setUsers(users: [Users]) {

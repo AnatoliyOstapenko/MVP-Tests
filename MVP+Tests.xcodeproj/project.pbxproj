@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC05F46528DC9F180034A90E /* CoreDataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05F46428DC9F180034A90E /* CoreDataManagerMock.swift */; };
+		BC13DE8628E7448B0086DB48 /* MapScreenPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13DE8528E7448B0086DB48 /* MapScreenPresenterTests.swift */; };
 		BC25E88128BACF8700F5107D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25E88028BACF8700F5107D /* CustomTextField.swift */; };
 		BC2B80E128D3643E00E837A6 /* CredentialsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B80E028D3643E00E837A6 /* CredentialsVC.swift */; };
 		BC2B80E328D36AAE00E837A6 /* CredentialsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B80E228D36AAE00E837A6 /* CredentialsPresenter.swift */; };
@@ -72,6 +73,7 @@
 
 /* Begin PBXFileReference section */
 		BC05F46428DC9F180034A90E /* CoreDataManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerMock.swift; sourceTree = "<group>"; };
+		BC13DE8528E7448B0086DB48 /* MapScreenPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenPresenterTests.swift; sourceTree = "<group>"; };
 		BC25E88028BACF8700F5107D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		BC2B80E028D3643E00E837A6 /* CredentialsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsVC.swift; sourceTree = "<group>"; };
 		BC2B80E228D36AAE00E837A6 /* CredentialsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsPresenter.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				BC2FC43628D77DC5006A7D71 /* CredentialsPresenterTests.swift */,
+				BC13DE8528E7448B0086DB48 /* MapScreenPresenterTests.swift */,
 				BC2FC43828D77FAA006A7D71 /* InitialPresenterTests.swift */,
 			);
 			path = Presenters;
@@ -554,6 +557,7 @@
 				BC2FC43928D77FAA006A7D71 /* InitialPresenterTests.swift in Sources */,
 				BC63E96428E0847A00A97DF9 /* InitialVCTests.swift in Sources */,
 				BC2FC43B28D87807006A7D71 /* NetworkManagerMock.swift in Sources */,
+				BC13DE8628E7448B0086DB48 /* MapScreenPresenterTests.swift in Sources */,
 				BC2FC43728D77DC5006A7D71 /* CredentialsPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

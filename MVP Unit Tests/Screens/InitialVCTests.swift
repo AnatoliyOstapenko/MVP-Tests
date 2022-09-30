@@ -55,6 +55,27 @@ final class InitialVCTests: XCTestCase {
         
         XCTAssertTrue(cell is InitialCell)
     }
+    
+    func test_didSelectRowAt() {
+        // Arrange
+        let users: [Users] = [Users(name: "Baz", username: "Bar", address: Address(geo: Geo(lat: "222", lng: "333"))), Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
+        // Act
+        sut.setUsers(users: users)
+        tableView.reloadData()
+        // Assert
+        XCTAssertNotNil(tableView.delegate?.tableView!(tableView, didSelectRowAt: IndexPath(row: 0, section: 0)))
+    }
+    
+    func test_heightForRowAt() {
+        // Arrange
+        let users: [Users] = [Users(name: "Baz", username: "Bar", address: Address(geo: Geo(lat: "222", lng: "333"))), Users(name: "Bar", username: "Foo", address: Address(geo: Geo(lat: "000", lng: "111")))]
+        // Act
+        sut.setUsers(users: users)
+        tableView.reloadData()
+        let height = sut.tableView(tableView, heightForRowAt: IndexPath(row: 0, section: 0))
+        // Assert
+        XCTAssertEqual(height, 100)
+    }
 
     
 
