@@ -155,7 +155,7 @@ extension UIView {
             view.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
             view.trailingAnchor.constraint(equalTo: superview.trailingAnchor),
             view.topAnchor.constraint(equalTo: stackView.bottomAnchor),
-            view.bottomAnchor.constraint(equalTo: superview.bottomAnchor),
+            view.bottomAnchor.constraint(equalTo: superview.bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -166,6 +166,67 @@ extension UIView {
         ])
     }
     
-
+    // MARK: - TermsAndConditionsVC
     
+    func setTermsAndConditionsContainer(view: UIView, container: UIView) {
+        view.addSubview(container)
+        container.backgroundColor = .white
+        container.layer.cornerRadius = 10
+        container.layer.borderWidth = 2
+        container.layer.borderColor = UIColor.red.cgColor
+        
+        container.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            container.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            container.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            container.heightAnchor.constraint(equalToConstant: 400),
+            container.widthAnchor.constraint(equalToConstant: 360)
+        ])
+    }
+    
+    func setScrollView(view: UIView, scrollView: UIScrollView) {
+        view.addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    func setTermsAndConditionsItems(scrollView: UIScrollView, contentView: UIView, label: UILabel, button: UIButton) {
+        scrollView.addSubview(contentView)
+        contentView.addSubview(label)
+        contentView.addSubview(button)
+        label.backgroundColor = .systemYellow
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.heightAnchor.constraint(equalToConstant: 1000)
+        ])
+        
+        NSLayoutConstraint.activate([
+            button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            button.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
+            button.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            button.heightAnchor.constraint(equalToConstant: 50)
+        ])
+
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: contentView.topAnchor),
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            label.bottomAnchor.constraint(equalTo: button.topAnchor)
+        ])
+
+    }
 }

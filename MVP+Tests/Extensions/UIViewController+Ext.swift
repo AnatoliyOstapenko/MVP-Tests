@@ -15,4 +15,11 @@ extension UIViewController {
         alertVC.modalTransitionStyle = .crossDissolve
         DispatchQueue.main.async { self.present(alertVC, animated: true) }
     }
+    
+    func presentTermsAndConditions() {
+        let termsAndConditionsVC = TermsAndConditionsVC()
+        termsAndConditionsVC.modalPresentationStyle = .overFullScreen
+        termsAndConditionsVC.modalTransitionStyle = .crossDissolve
+        DispatchQueue.main.async {self.present(termsAndConditionsVC, animated: true)}
+    }
 }

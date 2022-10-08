@@ -15,6 +15,7 @@ class CredentialsVC: UIViewController {
     private let buttonContainer = UIView()
     private let credentialButton = CustomButton(textButton: "OK")
     
+    // Object relations
     var presenter: CredentialPresenterProtocol?
     var coordinator: CoordinatorProtocol?
     
@@ -70,7 +71,8 @@ extension CredentialsVC: UITextFieldDelegate {
     func validation(login: UITextField, password: UITextField) {
         guard let presenter = presenter else { return }
         if presenter.userVarification(login: login, password: password) {
-            coordinator?.goToInitialScreen()
+//            coordinator?.goToInitialScreen()
+            presentTermsAndConditions()
         } else {
             presentAlert(error: "Login or password incorrect, try again")
         }
