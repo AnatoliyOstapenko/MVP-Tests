@@ -25,7 +25,7 @@ class LogoLabel: UILabel {
         
         let string = """
 Test Terms & Conditions Record #2
-follow to the link: https://www.apple.com
+follow to the link:      https://www.apple.com
 
 Essentially, a Terms and Conditions agreement is a contract between your business and the user of your website or app - whether they are an individual or a business. You may see Terms and Conditions agreements referred to as Terms of Service (ToS) or Terms of Use (ToU). There's no practical difference between these terms and companies use them interchangeably.
 
