@@ -197,20 +197,20 @@ extension UIView {
         ])
     }
     
-    func setTermsAndConditionsItems(scrollView: UIScrollView, contentView: UIView, label: UITextView, button: UIButton) {
+    func setTermsAndConditionsItems(scrollView: UIScrollView, contentView: UIView, textView: UITextView, button: UIButton) {
         scrollView.addSubview(contentView)
-        contentView.addSubview(label)
+        contentView.addSubview(textView)
         contentView.addSubview(button)
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        label.translatesAutoresizingMaskIntoConstraints = false
+        textView.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-//            contentView.heightAnchor.constraint(equalToConstant: 1000)
+            contentView.heightAnchor.constraint(equalToConstant: 1000)
         ])
         
         NSLayoutConstraint.activate([
@@ -221,10 +221,10 @@ extension UIView {
         ])
 
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            label.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -5)
+            textView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            textView.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -5)
         ])
 
     }

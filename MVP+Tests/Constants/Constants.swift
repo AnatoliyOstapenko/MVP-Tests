@@ -14,7 +14,7 @@ enum Constants {
     static let logo = "logoPositive"
     static let ok = "OK"
     
-    static let textLabel = """
+    static let termsAndConditionsText = """
 Test Terms & Conditions Record #2
 follow to the link:       https://www.apple.com
 
