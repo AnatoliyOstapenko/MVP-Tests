@@ -202,15 +202,27 @@ extension UIView {
         contentView.addSubview(textView)
         contentView.addSubview(button)
         
+//        textView.text = Constants.termsAndConditionsText
+        let nsAtributedString = NSAttributedString(string: Constants.termsAndConditionsText)
+        textView.attributedText = nsAtributedString
+        textView.linkTextAttributes = [.foregroundColor: UIColor.blue]
+        textView.isEditable = false
+        textView.isSelectable = true
+        textView.isUserInteractionEnabled = true
+        textView.dataDetectorTypes = .link
+        
         contentView.translatesAutoresizingMaskIntoConstraints = false
         textView.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
+        
+
         
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             contentView.heightAnchor.constraint(equalToConstant: 1000)
+//            contentView.heightAnchor.constraint(equalToConstant: textView.contentSize.height)
         ])
         
         NSLayoutConstraint.activate([

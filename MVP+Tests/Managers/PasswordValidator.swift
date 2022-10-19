@@ -20,11 +20,3 @@ class PasswordValidator: PasswordValidatorProtocol {
                passwordTextField.text == "123"
     }
 }
-
-extension FloatingPoint {
-    var isInteger: Bool {rounded() == self}
-}
-
-extension Sequence where Element == Int {
-    var sum: Int { reduce(0,+) }
-}

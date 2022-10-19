@@ -13,6 +13,7 @@ protocol CoordinatorProtocol {
     func start()
     func createMapScreen(user: Users)
     func goToInitialScreen()
+    func goToTermsAndConditionsScreen(vc: UIViewController)
 }
 
 // InitialVC
@@ -41,17 +42,6 @@ class Coordinator: CoordinatorProtocol {
         navController.pushViewController(view, animated: true)
     }
     
-//    func start() {
-//        let view = InitialVC()
-//        let manager = NetworkManager()
-//        let database = CoreDataManager()
-//        let presenter = InitialPresenter(view: view, manager: manager, database: database)
-//
-//        view.presenter = presenter
-//        view.coordinator = self
-//        navController.pushViewController(view, animated: true)
-//    }
-    
     func createMapScreen(user: Users) {
         let view = MapScreenVC()
         let presenter = MapScreenPresenter(view: view, user: user)
@@ -59,5 +49,13 @@ class Coordinator: CoordinatorProtocol {
         view.presenter = presenter
         view.coordinator = self
         navController.pushViewController(view, animated: true)
+    }
+    
+    func goToTermsAndConditionsScreen(vc: UIViewController) {
+        let view = TermsAndConditionsVC()
+        view.coordinator = self
+        view.modalPresentationStyle = .overFullScreen
+        view.modalTransitionStyle = .crossDissolve
+        DispatchQueue.main.async {vc.present(view, animated: true)}
     }
 }

@@ -37,6 +37,7 @@ class InitialVC: UIViewController {
         let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonPressed(_:)))
         navigationItem.leftBarButtonItems = [cancelBarButton, deleteBarButton]
     }
+    
     @objc private func cancelButtonPressed(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }

@@ -30,7 +30,7 @@ class CredentialsVC: UIViewController {
         loginTextField.text = "Login"
         passwordTextField.text = "123"
     }
-    
+
     private func configureUI() {
         view.backgroundColor = .systemBackground
         credentialsStackView.setCredentialsStackView(view: view, stack: credentialsStackView, login: loginTextField, password: passwordTextField)
@@ -41,7 +41,7 @@ class CredentialsVC: UIViewController {
     @objc func credentialButtonTap() {
         validation(login: loginTextField, password: passwordTextField)
     }
-    
+
     private func configureTextFields() {
         loginTextField.returnKeyType = .continue
         loginTextField.enablesReturnKeyAutomatically = true
@@ -60,9 +60,7 @@ extension CredentialsVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case loginTextField: passwordTextField.becomeFirstResponder()
-        case passwordTextField:
-            passwordTextField.resignFirstResponder()
-            validation(login: loginTextField, password: passwordTextField)
+        case passwordTextField: passwordTextField.resignFirstResponder()
         default: break
         }
         return true
@@ -70,9 +68,9 @@ extension CredentialsVC: UITextFieldDelegate {
     
     func validation(login: UITextField, password: UITextField) {
         guard let presenter = presenter else { return }
+
         if presenter.userVarification(login: login, password: password) {
-//            coordinator?.goToInitialScreen()
-            presentTermsAndConditions()
+            self.coordinator?.goToTermsAndConditionsScreen(vc: self)
         } else {
             presentAlert(error: "Login or password incorrect, try again")
         }

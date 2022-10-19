@@ -9,17 +9,20 @@ import UIKit
 
 class TermsAndConditionsVC: UIViewController {
     
+    // UI
     let containerView = UIView()
     let scrollView = UIScrollView()
     let contentView = UIView()
     let stackView = UIStackView()
     let termsButton = CustomButton(textButton: "Agree")
     let textView = UITextView()
+    
+    // Object Relations
+    var coordinator: CoordinatorProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        urlDetector()
     }
     
     private func configureUI() {
@@ -30,18 +33,8 @@ class TermsAndConditionsVC: UIViewController {
         termsButton.addTarget(self, action: #selector(agreeButtonPressed), for: .touchUpInside)
     }
     
-    func urlDetector() {
-        textView.text = Constants.termsAndConditionsText
-        textView.linkTextAttributes = [.foregroundColor: UIColor.blue]
-        textView.isEditable = false
-        textView.isSelectable = true
-        textView.isUserInteractionEnabled = true
-        textView.dataDetectorTypes = .link
-    }
-    
     @objc func agreeButtonPressed() {
+        coordinator?.goToInitialScreen()
         self.dismiss(animated: true)
     }
-
-
 }

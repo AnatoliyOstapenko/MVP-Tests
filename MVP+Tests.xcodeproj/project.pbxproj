@@ -272,6 +272,7 @@
 				BC6A77A228A53FC800E0AD8D /* InitialVC.swift */,
 				BC2B80E028D3643E00E837A6 /* CredentialsVC.swift */,
 				BC6A77CF28A9422800E0AD8D /* MapScreenVC.swift */,
+				BC4A983928F19E3500172878 /* TermsAndConditionsVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -364,7 +365,6 @@
 		BC73640428B50AB700F6BFF3 /* UIViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				BC4A983928F19E3500172878 /* TermsAndConditionsVC.swift */,
 				BC73640228B50AB000F6BFF3 /* AlertVC.swift */,
 			);
 			path = UIViewControllers;
