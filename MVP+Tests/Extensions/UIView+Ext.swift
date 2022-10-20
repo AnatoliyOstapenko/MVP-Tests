@@ -202,7 +202,6 @@ extension UIView {
         contentView.addSubview(textView)
         contentView.addSubview(button)
         
-//        textView.text = Constants.termsAndConditionsText
         let nsAtributedString = NSAttributedString(string: Constants.termsAndConditionsText)
         textView.attributedText = nsAtributedString
         textView.linkTextAttributes = [.foregroundColor: UIColor.blue]

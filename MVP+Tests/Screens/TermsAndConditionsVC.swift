@@ -34,7 +34,7 @@ class TermsAndConditionsVC: UIViewController {
     }
     
     @objc func agreeButtonPressed() {
-        coordinator?.goToInitialScreen()
         self.dismiss(animated: true)
+        coordinator?.goToInitialScreen()
     }
 }
