@@ -13,6 +13,7 @@ enum Constants {
     static let entityName = "UserModel"
     static let logo = "logoPositive"
     static let ok = "OK"
+    static let blankField = "Please do not leave this field blank"
     
     static let termsAndConditionsText = """
 Test Terms & Conditions Record #2

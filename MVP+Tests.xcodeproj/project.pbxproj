@@ -10,6 +10,7 @@
 		BC05F46528DC9F180034A90E /* CoreDataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05F46428DC9F180034A90E /* CoreDataManagerMock.swift */; };
 		BC13DE8628E7448B0086DB48 /* MapScreenPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13DE8528E7448B0086DB48 /* MapScreenPresenterTests.swift */; };
 		BC13DE8828E773230086DB48 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13DE8728E773230086DB48 /* CoreDataManagerTests.swift */; };
+		BC21B8D12902D52500A9C418 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21B8D02902D52500A9C418 /* DIContainer.swift */; };
 		BC25E88128BACF8700F5107D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25E88028BACF8700F5107D /* CustomTextField.swift */; };
 		BC2B80E128D3643E00E837A6 /* CredentialsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B80E028D3643E00E837A6 /* CredentialsVC.swift */; };
 		BC2B80E328D36AAE00E837A6 /* CredentialsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B80E228D36AAE00E837A6 /* CredentialsPresenter.swift */; };
@@ -47,6 +48,8 @@
 		BC87A0DB28B6580F00829E6F /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC87A0D928B6580F00829E6F /* UserModel.xcdatamodeld */; };
 		BC87A0DE28B6587700829E6F /* UserModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87A0DC28B6587700829E6F /* UserModel+CoreDataClass.swift */; };
 		BC87A0DF28B6587700829E6F /* UserModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87A0DD28B6587700829E6F /* UserModel+CoreDataProperties.swift */; };
+		BCE36F1F29097E5400B1C0BF /* MessageAbstractVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE36F1E29097E5400B1C0BF /* MessageAbstractVC.swift */; };
+		BCE36F2129097F6900B1C0BF /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE36F2029097F6900B1C0BF /* CustomTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,7 @@
 		BC05F46428DC9F180034A90E /* CoreDataManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerMock.swift; sourceTree = "<group>"; };
 		BC13DE8528E7448B0086DB48 /* MapScreenPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenPresenterTests.swift; sourceTree = "<group>"; };
 		BC13DE8728E773230086DB48 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
+		BC21B8D02902D52500A9C418 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		BC25E88028BACF8700F5107D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		BC2B80E028D3643E00E837A6 /* CredentialsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsVC.swift; sourceTree = "<group>"; };
 		BC2B80E228D36AAE00E837A6 /* CredentialsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsPresenter.swift; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 		BC87A0DA28B6580F00829E6F /* UserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserModel.xcdatamodel; sourceTree = "<group>"; };
 		BC87A0DC28B6587700829E6F /* UserModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BC87A0DD28B6587700829E6F /* UserModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BCE36F1E29097E5400B1C0BF /* MessageAbstractVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAbstractVC.swift; sourceTree = "<group>"; };
+		BCE36F2029097F6900B1C0BF /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,7 +262,7 @@
 				BC6A77A928A54DAA00E0AD8D /* Presenters */,
 				BC2EA81428AC48A500DF0400 /* Coordinator */,
 				BC6A77B128A55C9300E0AD8D /* Extensions */,
-				BC6A77BE28A7EBD400E0AD8D /* Constants */,
+				BC6A77BE28A7EBD400E0AD8D /* Utilities */,
 				BC87A0E128B67CE800829E6F /* DataBases */,
 				BC6A77A828A54D9C00E0AD8D /* Support */,
 				BC6A777B28A53F7D00E0AD8D /* Assets.xcassets */,
@@ -272,7 +278,6 @@
 				BC6A77A228A53FC800E0AD8D /* InitialVC.swift */,
 				BC2B80E028D3643E00E837A6 /* CredentialsVC.swift */,
 				BC6A77CF28A9422800E0AD8D /* MapScreenVC.swift */,
-				BC4A983928F19E3500172878 /* TermsAndConditionsVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				BC73640428B50AB700F6BFF3 /* UIViewControllers */,
 				BC73640728B50B3F00F6BFF3 /* UIButtons */,
 				BC25E88228BACF8C00F5107D /* UITextFields */,
+				BCE36F222909923D00B1C0BF /* UITextViews */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -353,18 +359,21 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		BC6A77BE28A7EBD400E0AD8D /* Constants */ = {
+		BC6A77BE28A7EBD400E0AD8D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				BC6A77BC28A7EBCC00E0AD8D /* Constants.swift */,
+				BC21B8D02902D52500A9C418 /* DIContainer.swift */,
 				BC73640A28B53DF200F6BFF3 /* CustomError.swift */,
 			);
-			path = Constants;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		BC73640428B50AB700F6BFF3 /* UIViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BC4A983928F19E3500172878 /* TermsAndConditionsVC.swift */,
+				BCE36F1E29097E5400B1C0BF /* MessageAbstractVC.swift */,
 				BC73640228B50AB000F6BFF3 /* AlertVC.swift */,
 			);
 			path = UIViewControllers;
@@ -394,6 +403,14 @@
 				BC87A0E028B67CB900829E6F /* CoreDataStack */,
 			);
 			path = DataBases;
+			sourceTree = "<group>";
+		};
+		BCE36F222909923D00B1C0BF /* UITextViews */ = {
+			isa = PBXGroup;
+			children = (
+				BCE36F2029097F6900B1C0BF /* CustomTextView.swift */,
+			);
+			path = UITextViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -579,6 +596,7 @@
 				BC6A77A328A53FC800E0AD8D /* InitialVC.swift in Sources */,
 				BC25E88128BACF8700F5107D /* CustomTextField.swift in Sources */,
 				BC73640928B5166E00F6BFF3 /* UIViewController+Ext.swift in Sources */,
+				BC21B8D12902D52500A9C418 /* DIContainer.swift in Sources */,
 				BC6A777328A53F7A00E0AD8D /* AppDelegate.swift in Sources */,
 				BC2FC42628D4BF0F006A7D71 /* PasswordValidator.swift in Sources */,
 				BC2FC42428D49903006A7D71 /* LogoLabel.swift in Sources */,
@@ -593,7 +611,9 @@
 				BC2B80E328D36AAE00E837A6 /* CredentialsPresenter.swift in Sources */,
 				BC2B80E128D3643E00E837A6 /* CredentialsVC.swift in Sources */,
 				BC6A77A528A54D6500E0AD8D /* InitialPresenter.swift in Sources */,
+				BCE36F2129097F6900B1C0BF /* CustomTextView.swift in Sources */,
 				BC6A77B328A64E0700E0AD8D /* InitialCell.swift in Sources */,
+				BCE36F1F29097E5400B1C0BF /* MessageAbstractVC.swift in Sources */,
 				BC73640B28B53DF200F6BFF3 /* CustomError.swift in Sources */,
 				BC73643128B64CB900F6BFF3 /* CoreDataManager.swift in Sources */,
 				BC6A77D628AC1F2E00E0AD8D /* Coordinator.swift in Sources */,

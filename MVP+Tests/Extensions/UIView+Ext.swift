@@ -11,7 +11,7 @@ import UIKit
 private let padding: CGFloat = 10
 
 extension UIView {
-
+    
     // MARK: - InitialVC Layout
     func setInitialTableView(view: UIView, tableView: UITableView, vc: UIViewController) {
         view.addSubview(tableView)
@@ -57,7 +57,7 @@ extension UIView {
             label.widthAnchor.constraint(lessThanOrEqualToConstant: 40)
         ])
     }
-
+    
     func setRightStackView(stackView: UIStackView, nameLabel: UILabel, usernameLabel: UILabel) {
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
@@ -65,7 +65,7 @@ extension UIView {
         stackView.addArrangedSubview(usernameLabel)
         stackView.translatesAutoresizingMaskIntoConstraints = false
     }
-
+    
     // MARK: - MapScreenVC Layout
     
     func setMapView(view: UIView, mapView: UIView) {
@@ -202,26 +202,33 @@ extension UIView {
         contentView.addSubview(textView)
         contentView.addSubview(button)
         
-        let nsAtributedString = NSAttributedString(string: Constants.termsAndConditionsText)
-        textView.attributedText = nsAtributedString
-        textView.linkTextAttributes = [.foregroundColor: UIColor.blue]
-        textView.isEditable = false
-        textView.isSelectable = true
-        textView.isUserInteractionEnabled = true
-        textView.dataDetectorTypes = .link
+//        let nsAtributedString = NSAttributedString(string: textMessage)
+//        textView.attributedText = nsAtributedString
+//        textView.linkTextAttributes = [.foregroundColor: UIColor.blue]
+//        textView.delegate = vc as? TermsAndConditionsVC
+//        textView.isEditable = false
+//        textView.isSelectable = true
+//        textView.isUserInteractionEnabled = true
+//        textView.dataDetectorTypes = .link
+//        textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) // constraints
+//
+//
+//        // Shadow for textView
+//        textView.layer.shadowColor = UIColor.gray.cgColor;
+//        textView.layer.shadowOffset = CGSize(width: 0.75, height: 0.75)
+//        textView.layer.shadowOpacity = 0.4
+//        textView.layer.shadowRadius = 20
+//        textView.layer.masksToBounds = false
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        textView.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
-        
-
         
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            contentView.heightAnchor.constraint(equalToConstant: 1000)
-//            contentView.heightAnchor.constraint(equalToConstant: textView.contentSize.height)
+//            contentView.heightAnchor.constraint(equalToConstant: 1000)
+            contentView.heightAnchor.constraint(equalToConstant: textView.contentSize.height)
         ])
         
         NSLayoutConstraint.activate([
@@ -230,13 +237,13 @@ extension UIView {
             button.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             button.heightAnchor.constraint(equalToConstant: 50)
         ])
-
+        
         NSLayoutConstraint.activate([
-            textView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            textView.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -5)
+            textView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            textView.bottomAnchor.constraint(equalTo: button.topAnchor)
         ])
-
+        
     }
 }

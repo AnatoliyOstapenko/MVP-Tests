@@ -13,7 +13,8 @@ protocol CoordinatorProtocol {
     func start()
     func createMapScreen(user: Users)
     func goToInitialScreen()
-    func goToTermsAndConditionsScreen(vc: UIViewController)
+    func goToTermsAndConditionsScreen(vc: UIViewController, textMessage: String)
+//    func showAlertVC(vc: UIViewController, textMessage: String)
 }
 
 // InitialVC
@@ -51,11 +52,21 @@ class Coordinator: CoordinatorProtocol {
         navController.pushViewController(view, animated: true)
     }
     
-    func goToTermsAndConditionsScreen(vc: UIViewController) {
-        let view = TermsAndConditionsVC()
+    func goToTermsAndConditionsScreen(vc: UIViewController, textMessage: String) {
+        let view = TermsAndConditionsVC(text: textMessage)
         view.coordinator = self
         view.modalPresentationStyle = .overFullScreen
         view.modalTransitionStyle = .crossDissolve
         DispatchQueue.main.async {vc.present(view, animated: true)}
     }
+    
+//    func showAlertVC(vc: MessageProtocol, textMessage: String) {
+//
+//        let view = vc is AlertVC ? AlertVC(errorText: textMessage) : TermsAndConditionsVC(text: textMessage)
+//
+//        view.coordinator = self
+//        view.modalPresentationStyle = .overFullScreen
+//        view.modalTransitionStyle = .crossDissolve
+//        DispatchQueue.main.async {vc.present(view, animated: true)}
+//    }
 }

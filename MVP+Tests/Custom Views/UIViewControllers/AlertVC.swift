@@ -7,11 +7,15 @@
 
 import UIKit
 
-class AlertVC: UIViewController {
+protocol MessageProtocol { var coordinator: CoordinatorProtocol? {get set} }
+
+class AlertVC: UIViewController, MessageProtocol {
     
     let alertContainer = UIView()
     let alertLabel = CustomLabel(textColor: .red)
     let alertButton = CustomButton(textButton: Constants.ok)
+    
+    var coordinator: CoordinatorProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()

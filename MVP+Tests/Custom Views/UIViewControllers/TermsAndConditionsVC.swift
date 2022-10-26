@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TermsAndConditionsVC: UIViewController {
+class TermsAndConditionsVC: UIViewController, MessageProtocol {
     
     // UI
     let containerView = UIView()
@@ -15,7 +15,8 @@ class TermsAndConditionsVC: UIViewController {
     let contentView = UIView()
     let stackView = UIStackView()
     let termsButton = CustomButton(textButton: "Agree")
-    let textView = UITextView()
+    let textView = CustomTextView(text: Constants.termsAndConditionsText)
+    var textMessage: String?
     
     // Object Relations
     var coordinator: CoordinatorProtocol?
@@ -23,6 +24,17 @@ class TermsAndConditionsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+    }
+    
+    init(text: String) {
+        super.init(nibName: nil, bundle: nil)
+        textMessage = text
+        let nsAtributedString = NSAttributedString(string: text)
+        textView.attributedText = nsAtributedString
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func configureUI() {
@@ -34,7 +46,9 @@ class TermsAndConditionsVC: UIViewController {
     }
     
     @objc func agreeButtonPressed() {
-        self.dismiss(animated: true)
+        dismiss(animated: true)
         coordinator?.goToInitialScreen()
     }
 }
+
+extension TermsAndConditionsVC: UITextViewDelegate {}

@@ -9,10 +9,7 @@ import Foundation
 
 extension String {
     var stringToDouble: Double {
-        if let item = Double(self) {
-            return item
-        }
-        return 0
+        return Double(self) ?? 0
     }
 }
 

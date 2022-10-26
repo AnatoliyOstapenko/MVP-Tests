@@ -64,7 +64,8 @@ class InitialVC: UIViewController {
         
         let addButton = UIAlertAction(title: "add", style: .default) { _ in
             guard let textField = alert.textFields, let name = textField[0].text, let username = textField[1].text, !name.isEmpty, !username.isEmpty else {
-                self.presentAlert(error: "Please type name and username to save")
+                self.coordinator?.goToTermsAndConditionsScreen(vc: self, textMessage: Constants.blankField)
+//                self.coordinator?.showAlertVC(vc: self, textMessage: Constants.blankField)
                 return
             }
             let user = Users(name: name, username: username, address: Address(geo: Geo(lat: "40.7128", lng: "74.0060")))
