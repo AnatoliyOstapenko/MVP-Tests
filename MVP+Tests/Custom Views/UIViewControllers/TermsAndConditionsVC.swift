@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TermsAndConditionsVC: UIViewController, MessageProtocol {
+class TermsAndConditionsVC: UIViewController {
     
     // UI
     let containerView = UIView()
@@ -24,6 +24,13 @@ class TermsAndConditionsVC: UIViewController, MessageProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        // Determine RTL or LTR is enabled
+        if view.effectiveUserInterfaceLayoutDirection == .rightToLeft {
+            print("rightToLeft")
+        } else if view.effectiveUserInterfaceLayoutDirection == .leftToRight {
+            print("leftToRight")
+        }
+        
     }
     
     init(text: String) {
@@ -42,13 +49,13 @@ class TermsAndConditionsVC: UIViewController, MessageProtocol {
         containerView.setTermsAndConditionsContainer(view: view, container: containerView)
         scrollView.setScrollView(view: containerView, scrollView: scrollView)
         view.setTermsAndConditionsItems(scrollView: scrollView, contentView: contentView, textView: textView, button: termsButton)
-        termsButton.addTarget(self, action: #selector(agreeButtonPressed), for: .touchUpInside)
+        termsButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
-    @objc func agreeButtonPressed() {
+    @objc func buttonTapped() {
         dismiss(animated: true)
         coordinator?.goToInitialScreen()
     }
 }
 
-extension TermsAndConditionsVC: UITextViewDelegate {}
+extension TermsAndConditionsVC: MessageProtocol {}

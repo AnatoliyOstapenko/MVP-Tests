@@ -7,9 +7,11 @@
 
 import UIKit
 
-protocol MessageProtocol { var coordinator: CoordinatorProtocol? {get set} }
+// It's magic protocol that provides oppotunity to change modalPresentationStyle
+// and avoid casting view at func showAlertVC (Coordinator class):
+protocol MessageProtocol: UIViewController { var coordinator: CoordinatorProtocol? {get set} }
 
-class AlertVC: UIViewController, MessageProtocol {
+class AlertVC: UIViewController {
     
     let alertContainer = UIView()
     let alertLabel = CustomLabel(textColor: .red)
@@ -38,8 +40,12 @@ class AlertVC: UIViewController, MessageProtocol {
         alertContainer.setAlertContainer(view: view, container: alertContainer)
         alertButton.setAlertButton(view: alertContainer, button: alertButton)
         alertLabel.setAlertLabel(view: alertContainer, button: alertButton, label: alertLabel)
-        alertButton.addTarget(self, action: #selector(alertButtonTapped), for: .touchUpInside)
+        alertButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
-    @objc func alertButtonTapped() { dismiss(animated: true) } 
+    @objc func buttonTapped() {
+        dismiss(animated: true)
+    }
 }
+
+extension AlertVC: MessageProtocol {}

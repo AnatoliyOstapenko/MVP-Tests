@@ -70,8 +70,8 @@ extension CredentialsVC: UITextFieldDelegate {
         guard let presenter = presenter else { return }
 
         if presenter.userVarification(login: login, password: password) {
-            self.coordinator?.goToTermsAndConditionsScreen(vc: self, textMessage: Constants.termsAndConditionsText)
-//            self.coordinator?.showAlertVC(vc: self, textMessage: Constants.termsAndConditionsText)
+//            self.coordinator?.goToTermsAndConditionsScreen(vc: self, textMessage: Constants.termsAndConditionsText)
+            self.coordinator?.showAlertOrTConditionVC(vc: self, textMessage: Constants.termsAndConditionsText)
         } else {
             presentAlert(error: "Login or password incorrect, try again")
         }

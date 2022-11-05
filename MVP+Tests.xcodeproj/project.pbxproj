@@ -48,7 +48,6 @@
 		BC87A0DB28B6580F00829E6F /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC87A0D928B6580F00829E6F /* UserModel.xcdatamodeld */; };
 		BC87A0DE28B6587700829E6F /* UserModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87A0DC28B6587700829E6F /* UserModel+CoreDataClass.swift */; };
 		BC87A0DF28B6587700829E6F /* UserModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87A0DD28B6587700829E6F /* UserModel+CoreDataProperties.swift */; };
-		BCE36F1F29097E5400B1C0BF /* MessageAbstractVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE36F1E29097E5400B1C0BF /* MessageAbstractVC.swift */; };
 		BCE36F2129097F6900B1C0BF /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE36F2029097F6900B1C0BF /* CustomTextView.swift */; };
 /* End PBXBuildFile section */
 
@@ -123,7 +122,6 @@
 		BC87A0DA28B6580F00829E6F /* UserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserModel.xcdatamodel; sourceTree = "<group>"; };
 		BC87A0DC28B6587700829E6F /* UserModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BC87A0DD28B6587700829E6F /* UserModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		BCE36F1E29097E5400B1C0BF /* MessageAbstractVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAbstractVC.swift; sourceTree = "<group>"; };
 		BCE36F2029097F6900B1C0BF /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -373,7 +371,6 @@
 			isa = PBXGroup;
 			children = (
 				BC4A983928F19E3500172878 /* TermsAndConditionsVC.swift */,
-				BCE36F1E29097E5400B1C0BF /* MessageAbstractVC.swift */,
 				BC73640228B50AB000F6BFF3 /* AlertVC.swift */,
 			);
 			path = UIViewControllers;
@@ -613,7 +610,6 @@
 				BC6A77A528A54D6500E0AD8D /* InitialPresenter.swift in Sources */,
 				BCE36F2129097F6900B1C0BF /* CustomTextView.swift in Sources */,
 				BC6A77B328A64E0700E0AD8D /* InitialCell.swift in Sources */,
-				BCE36F1F29097E5400B1C0BF /* MessageAbstractVC.swift in Sources */,
 				BC73640B28B53DF200F6BFF3 /* CustomError.swift in Sources */,
 				BC73643128B64CB900F6BFF3 /* CoreDataManager.swift in Sources */,
 				BC6A77D628AC1F2E00E0AD8D /* Coordinator.swift in Sources */,

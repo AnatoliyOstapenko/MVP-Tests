@@ -201,24 +201,7 @@ extension UIView {
         scrollView.addSubview(contentView)
         contentView.addSubview(textView)
         contentView.addSubview(button)
-        
-//        let nsAtributedString = NSAttributedString(string: textMessage)
-//        textView.attributedText = nsAtributedString
-//        textView.linkTextAttributes = [.foregroundColor: UIColor.blue]
-//        textView.delegate = vc as? TermsAndConditionsVC
-//        textView.isEditable = false
-//        textView.isSelectable = true
-//        textView.isUserInteractionEnabled = true
-//        textView.dataDetectorTypes = .link
-//        textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) // constraints
-//
-//
-//        // Shadow for textView
-//        textView.layer.shadowColor = UIColor.gray.cgColor;
-//        textView.layer.shadowOffset = CGSize(width: 0.75, height: 0.75)
-//        textView.layer.shadowOpacity = 0.4
-//        textView.layer.shadowRadius = 20
-//        textView.layer.masksToBounds = false
+        contentView.backgroundColor = .systemBackground // avoid grey color
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -227,8 +210,8 @@ extension UIView {
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-//            contentView.heightAnchor.constraint(equalToConstant: 1000)
-            contentView.heightAnchor.constraint(equalToConstant: textView.contentSize.height)
+            contentView.heightAnchor.constraint(equalToConstant: 1000)
+//            contentView.heightAnchor.constraint(equalToConstant: textView.contentSize.height)
         ])
         
         NSLayoutConstraint.activate([
